@@ -56,6 +56,12 @@
         "lintFilePatterns": ["apps/frontend/**/*.{ts,tsx,js,jsx}"]
       }
     },
+    "stylelint": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "stylelint apps/frontend/src/**/*.scss"
+      }
+    },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/frontend"],
