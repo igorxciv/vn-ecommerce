@@ -1,0 +1,52 @@
+{
+	"root": "apps/microservices/tabs",
+	"sourceRoot": "apps/microservices/tabs/src",
+	"projectType": "application",
+	"targets": {
+		"build": {
+			"executor": "@nrwl/node:build",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/apps/microservices/tabs",
+				"main": "apps/microservices/tabs/src/main.ts",
+				"tsConfig": "apps/microservices/tabs/tsconfig.app.json",
+				"assets": ["apps/microservices/tabs/src/assets"]
+			},
+			"configurations": {
+				"production": {
+					"optimization": true,
+					"extractLicenses": true,
+					"inspect": false,
+					"fileReplacements": [
+						{
+							"replace": "apps/microservices/tabs/src/environments/environment.ts",
+							"with": "apps/microservices/tabs/src/environments/environment.prod.ts"
+						}
+					]
+				}
+			}
+		},
+		"serve": {
+			"executor": "@nrwl/node:execute",
+			"options": {
+				"buildTarget": "microservices-tabs:build"
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["apps/microservices/tabs/**/*.ts"]
+			}
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/apps/microservices/tabs"],
+			"options": {
+				"jestConfig": "apps/microservices/tabs/jest.config.js",
+				"passWithNoTests": true
+			}
+		}
+	},
+	"tags": []
+}
