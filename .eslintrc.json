@@ -1,7 +1,8 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nrwl/nx"],
+  "plugins": ["@nrwl/nx", "react", "jsx-a11y", "jest", "react-hooks", "import"],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:jsx-a11y/recommended", "plugin:react-hooks/recommended", "plugin:prettier/recommended"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -18,7 +19,63 @@
               }
             ]
           }
-        ]
+        ],
+
+        "no-restricted-imports": ["error", {"patterns": ["*.test", "*.spec", "../../*"]}],
+        "no-empty": "error",
+        "no-unused-vars": "off",
+        "no-plusplus": [
+          "error",
+          {
+            "allowForLoopAfterthoughts": true
+          }
+        ],
+        "curly": [
+          "error",
+          "all"
+        ],
+        "lines-between-class-members": [
+          "error",
+          "always",
+          {
+            "exceptAfterSingleLine": true
+          }
+        ],
+        "newline-after-var": "error",
+        "padding-line-between-statements": ["error", { "blankLine": "always", "prev": "*", "next": "return" }],
+        "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
+
+        "@typescript-eslint/explicit-module-boundary-types": ["error"],
+        "@typescript-eslint/no-explicit-any": ["error"],
+        "@typescript-eslint/no-unused-vars": ["error", {
+          "args": "all",
+          "argsIgnorePattern": "^_"
+        }],
+        "react/self-closing-comp": ["error", { "component": true, "html": true }],
+        "react/no-multi-comp": "error",
+        "react/prefer-stateless-function": "error",
+        "react/jsx-max-depth": ["error", {"max": 8}],
+        "react/jsx-boolean-value": ["error", "never"],
+        "react/jsx-key": "error",
+        "react/react-in-jsx-scope": "off",
+
+        "import/no-default-export": "error",
+        "import/no-internal-modules": ["error", {
+          "allow": [
+            "react-test-renderer/*",
+            "core-js/*",
+            "regenerator-runtime/*"
+          ]
+        }],
+        "import/order": ["error", {
+          "groups": ["builtin", "external", "internal", "sibling"],
+          "newlines-between": "never",
+          "pathGroups": [
+            { "pattern": "react", "group": "external", "position": "before" },
+            { "pattern": "*.scss", "group": "internal", "position": "after" }
+          ]
+        }],
+        "import/no-duplicates": ["error"]
       }
     },
     {
