@@ -26,6 +26,8 @@
     "tslib": "2.3.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "14.1.0",
+    "@commitlint/config-conventional": "14.1.0",
     "@nestjs/schematics": "8.0.4",
     "@nestjs/testing": "8.1.2",
     "@nrwl/cli": "13.1.3",
