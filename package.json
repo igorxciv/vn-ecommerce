@@ -8,7 +8,7 @@
 		"test": "nx test",
 		"show-deps": "nx dep-graph",
 		"prepare": "husky install",
-    "app": "nx run-many --target=serve --projects=frontend,tabs --parallel=true"
+		"app": "nx run-many --target=serve --projects=frontend,tabs --parallel=true"
 	},
 	"private": true,
 	"dependencies": {
@@ -36,6 +36,7 @@
 		"@nrwl/nest": "13.1.3",
 		"@nrwl/node": "13.1.3",
 		"@nrwl/react": "13.1.3",
+		"@nrwl/storybook": "13.1.3",
 		"@nrwl/tao": "13.1.3",
 		"@nrwl/web": "13.1.3",
 		"@nrwl/workspace": "13.1.3",

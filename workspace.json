@@ -3,6 +3,7 @@
 	"projects": {
 		"frontend": "apps/frontend",
 		"frontend-e2e": "apps/frontend-e2e",
-		"microservices-tabs": "apps/microservices/tabs"
+		"microservices-tabs": "apps/microservices/tabs",
+		"ui-kit": "libs/ui-kit"
 	}
 }
