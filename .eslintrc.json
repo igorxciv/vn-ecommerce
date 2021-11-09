@@ -21,7 +21,6 @@
           }
         ],
 
-        "no-restricted-imports": ["error", {"patterns": ["*.test", "*.spec", "../../*"]}],
         "no-empty": "error",
         "no-unused-vars": "off",
         "no-plusplus": [
@@ -60,13 +59,6 @@
         "react/react-in-jsx-scope": "off",
 
         "import/no-default-export": "error",
-        "import/no-internal-modules": ["error", {
-          "allow": [
-            "react-test-renderer/*",
-            "core-js/*",
-            "regenerator-runtime/*"
-          ]
-        }],
         "import/order": ["error", {
           "groups": ["builtin", "external", "internal", "sibling"],
           "newlines-between": "never",

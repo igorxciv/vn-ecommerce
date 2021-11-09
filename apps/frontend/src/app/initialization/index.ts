@@ -1,0 +1,1 @@
+export { setupLocalization } from './localization';
