@@ -1,0 +1,10 @@
+@import 'design/settings/colors';
+@import 'design/tools/sizing';
+
+.header {
+  align-items: center;
+  border-bottom: rem(1) solid $color__basic-200;
+  display: flex;
+  justify-content: space-between;
+  padding: rem(15) rem(20);
+}

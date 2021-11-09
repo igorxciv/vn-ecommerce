@@ -1,0 +1,12 @@
+@import 'design/tools/sizing';
+
+.logo {
+  box-sizing: content-box;
+  display: block;
+  width: rem(16);
+  padding: 0 rem(16);
+
+  &__icon {
+    color: black;
+  }
+}

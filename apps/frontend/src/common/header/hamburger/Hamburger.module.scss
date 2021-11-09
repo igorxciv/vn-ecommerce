@@ -1,0 +1,22 @@
+@import 'design/settings/colors';
+@import 'design/tools/sizing';
+
+.hamburger {
+  border: none;
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  width: rem(14);
+  height: rem(8);
+  padding: rem(8);
+  background: none;
+
+  &__line {
+    width: 100%;
+    height: rem(1);
+    background-color: $color__basic-900;
+    display: block;
+  }
+}

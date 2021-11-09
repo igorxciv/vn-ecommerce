@@ -1,12 +1,19 @@
 import { Logo } from '@vn-ecommerce/ui-kit/atoms/logo';
-import { useTranslation } from 'react-i18next';
+import classNames from 'classnames/bind';
+import { Hamburger } from './hamburger';
+import styles from './Header.module.scss';
+import { RightMenu } from './right-menu';
+
+const cx = classNames.bind(styles);
 
 export const Header = () => {
-	const { t } = useTranslation('common');
+	const headerClasses = cx('header');
 
 	return (
-		<header>
-			<Logo alt={`${t('logo1')} ${t('logo2')}`} />
+		<header className={headerClasses}>
+			<Hamburger />
+			<Logo />
+			<RightMenu />
 		</header>
 	);
 };

@@ -1,3 +1,7 @@
 {
-  "extends": ["stylelint-config-standard-scss"]
+  "extends": ["stylelint-config-standard-scss"],
+  "rules": {
+    "string-quotes": "single",
+    "scss/dollar-variable-pattern": "^[a-z]+__[a-z0-9-]*$"
+  }
 }
