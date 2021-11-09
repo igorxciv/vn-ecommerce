@@ -1,0 +1,1 @@
+export { RoutableContent } from './RoutableContent';

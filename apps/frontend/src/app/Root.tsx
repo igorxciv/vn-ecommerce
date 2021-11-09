@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { I18nextProvider } from 'react-i18next';
 import i18next from 'i18next';
 import { Suspense } from 'react';
+import { RoutableContent } from './routable-content';
 import { Header } from '../common/header';
 import { store } from '../store/store';
 
@@ -13,6 +14,7 @@ export const Root = () => {
 				<I18nextProvider i18n={i18next}>
 					<Suspense fallback={<div />}>
 						<Header />
+						<RoutableContent />
 					</Suspense>
 				</I18nextProvider>
 			</BrowserRouter>
