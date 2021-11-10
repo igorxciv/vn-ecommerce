@@ -1,0 +1,46 @@
+@use 'sass:color';
+
+@import 'design/settings/colors';
+@import 'design/settings/font-weights';
+@import 'design/tools/sizing';
+@import 'design/tools/transitions';
+
+.nav-items {
+	display: flex;
+	justify-content: center;
+	padding: rem(10) 0;
+
+	&__item {
+		display: flex;
+	}
+
+	&__link {
+		color: $color__basic-900;
+		font-size: rem(11);
+		font-weight: $font-weight__semi-bold;
+		letter-spacing: rem(1.5);
+		padding: rem(2) rem(12);
+		position: relative;
+		text-decoration: none;
+		text-transform: uppercase;
+
+		&::after {
+			background-color: color.adjust($color__basic-900, $alpha: -0.76);
+			bottom: 0;
+			content: '';
+			height: rem(1);
+			left: rem(12);
+			position: absolute;
+			transform: scaleX(0);
+			width: calc(100% - #{rem(12) * 2});
+
+			@include property-animation('transform', 0.2);
+		}
+
+		&:hover {
+			&::after {
+				transform: scaleX(1);
+			}
+		}
+	}
+}

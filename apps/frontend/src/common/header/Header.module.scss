@@ -1,13 +1,102 @@
 @import 'design/settings/colors';
 @import 'design/tools/sizing';
 @import 'design/tools/media';
+@import 'design/generic/layout';
+@import 'design/tools/transitions';
 
 .header {
+	@extend %page-container;
+
 	background-color: $color__basic-100;
 	border-bottom: rem(1) solid $color__basic-200;
 	left: 0;
-	padding: rem(15) rem(20);
+	padding-bottom: rem(15);
+	padding-top: rem(15);
 	position: fixed;
 	width: 100%;
 	z-index: 1;
+
+	@include property-animation('transform', 0.2);
+
+	@include large-screen {
+		padding-bottom: 0;
+		padding-top: 0;
+	}
+
+	&--compact {
+		@include large-screen {
+			transform: translateY(rem(-60));
+		}
+
+		.header__navigation {
+			@include large-screen {
+				padding: rem(15) 0;
+			}
+		}
+
+		.header__menu {
+			@include large-screen {
+				opacity: 0%;
+			}
+		}
+
+		.header__logo,
+		.header__cart {
+			@include large-screen {
+				opacity: 100%;
+				transform: translateY(0);
+			}
+		}
+	}
+
+	&--top {
+		@include large-screen {
+			border-bottom: none;
+		}
+	}
+
+	&__menu {
+		opacity: 100%;
+
+		@include property-animation('opacity', 0.3, $delay: 0.2);
+	}
+
+	&__navigation {
+		align-items: center;
+		display: none;
+		justify-content: center;
+		opacity: 100%;
+		position: relative;
+
+		@include large-screen {
+			display: flex;
+		}
+	}
+
+	&__logo,
+	&__cart {
+		box-sizing: content-box;
+		color: $color__basic-900;
+		display: none;
+		opacity: 0%;
+		position: absolute;
+		transform: translateY(rem(20));
+		width: rem(20);
+
+		@include property-animation(('opacity', 'transform'), 0.3);
+
+		@include large-screen {
+			display: block;
+		}
+	}
+
+	&__logo {
+		left: 0;
+		padding: 0 rem(10);
+	}
+
+	&__cart {
+		padding: rem(10);
+		right: 0;
+	}
 }

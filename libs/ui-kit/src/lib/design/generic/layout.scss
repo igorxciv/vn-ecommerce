@@ -1,10 +1,21 @@
+@import '../settings/grid';
 @import '../tools/sizing';
 @import '../tools/media';
 
 %body-padding {
 	padding-top: rem(80);
+
+	@include large-screen {
+		padding-top: rem(120);
+	}
 }
 
 %page-container {
-	/* keep */
+	padding-left: rem($layout-padding__medium);
+	padding-right: rem($layout-padding__medium);
+
+	@include large-screen {
+		padding-left: rem($layout-padding__large);
+		padding-right: rem($layout-padding__large);
+	}
 }

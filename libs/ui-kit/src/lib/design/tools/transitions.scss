@@ -1,0 +1,14 @@
+/* stylelint-disable order/order, scss/dollar-variable-pattern */
+
+@use 'sass:list';
+@use 'sass:string';
+
+@mixin property-animation($properties, $duration: 0.15, $timing-func: ease-in, $delay: 0) {
+	$props: ();
+
+	@each $prop in $properties {
+		$props: list.append($props, string.unquote($prop), comma);
+	}
+
+	transition: $props $duration $timing-func $delay;
+}

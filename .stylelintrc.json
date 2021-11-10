@@ -4,7 +4,7 @@
   "rules": {
     "string-quotes": "single",
     "scss/dollar-variable-pattern": "^[a-z-]+__[a-z0-9-]*$",
-    "order/order": ["custom-properties", "declarations", "at-rules", "rules"],
+    "order/order": ["custom-properties", { "type": "at-rule", "name": "extend" }, "declarations", "at-rules", "rules"],
     "order/properties-alphabetical-order": true,
     "comment-no-empty": true,
     "color-no-invalid-hex": true,
@@ -14,6 +14,8 @@
     "no-duplicate-selectors": true,
     "declaration-block-no-duplicate-properties": true,
     "indentation": "tab",
-    "declaration-colon-newline-after": "always-multi-line"
+    "declaration-colon-newline-after": "always-multi-line",
+    "selector-class-pattern": null,
+    "no-descending-specificity": null
   }
 }

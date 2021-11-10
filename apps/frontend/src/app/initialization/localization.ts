@@ -1,6 +1,8 @@
 import i18next from 'i18next';
 import common_ru from '../../translations/ru/common.json';
 import common_en from '../../translations/en/common.json';
+import navigation_ru from '../../translations/ru/navigation.json';
+import navigation_en from '../../translations/en/navigation.json';
 
 export async function setupLocalization(): Promise<void> {
 	await i18next.init({
@@ -9,9 +11,11 @@ export async function setupLocalization(): Promise<void> {
 		resources: {
 			en: {
 				common: common_en,
+				navigation: navigation_en,
 			},
 			ru: {
 				common: common_ru,
+				navigation: navigation_ru,
 			},
 		},
 	});

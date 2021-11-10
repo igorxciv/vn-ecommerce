@@ -1,16 +1,35 @@
 @import 'design/settings/colors';
 @import 'design/settings/font-weights';
 @import 'design/tools/sizing';
+@import 'design/tools/media';
 
 .logo {
 	align-items: center;
 	box-sizing: content-box;
 	color: $color__basic-900;
 	display: flex;
+	font-size: rem(24);
+	font-weight: $font-weight__semi-bold;
+	gap: rem(5);
+	letter-spacing: rem(1.5);
 	padding: 0 rem(16);
+	text-decoration: none;
+	text-transform: uppercase;
+
+	@include large-screen {
+		padding: rem(10);
+	}
 
 	&__icon {
 		color: black;
 		width: rem(16);
+	}
+
+	&__caption {
+		display: none;
+
+		@include large-screen {
+			display: block;
+		}
 	}
 }

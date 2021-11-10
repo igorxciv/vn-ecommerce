@@ -8,16 +8,21 @@ const cx = classNames.bind(styles);
 
 type Props = {
 	to?: string;
+	firstCaption?: string;
+	secondCaption?: string;
 };
 
 export const Logo: FC<Props> = (props: Props) => {
-	const { to = '/' } = props;
+	const { to = '/', firstCaption = '', secondCaption = '' } = props;
 	const logoClasses = cx('logo');
 	const iconClasses = cx('logo__icon');
+	const captionClasses = cx('logo__caption');
 
 	return (
 		<Link to={to} className={logoClasses}>
+			<span className={captionClasses}>{firstCaption}</span>
 			<LogoIcon className={iconClasses} />
+			<span className={captionClasses}>{secondCaption}</span>
 		</Link>
 	);
 };
