@@ -1,0 +1,11 @@
+@import 'design/tools/media';
+
+.left-menu {
+	justify-self: flex-start;
+
+	&__hamburger {
+		@include large-screen {
+			display: none;
+		}
+	}
+}
