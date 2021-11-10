@@ -1,0 +1,5 @@
+@import 'design/generic/layout';
+
+.content {
+	@extend %body-padding;
+}

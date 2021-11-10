@@ -3,12 +3,16 @@
 
 .header {
 	align-items: center;
+	background: $color__basic-100;
 	border-bottom: rem(1) solid $color__basic-200;
 	display: grid;
 	grid-auto-flow: column;
 	grid-template-columns: 1fr 1fr 1fr;
 	justify-items: center;
 	padding: rem(15) rem(20);
+	position: fixed;
+	width: 100%;
+	z-index: 1;
 
 	&__hamburger {
 		justify-self: flex-start;

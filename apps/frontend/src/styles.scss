@@ -1,5 +1,10 @@
+@import 'design/settings/fonts';
 @import 'design/generic/reset-css';
 
 * {
 	box-sizing: border-box;
+}
+
+body {
+	font-family: $font__primary;
 }

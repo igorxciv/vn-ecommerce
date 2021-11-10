@@ -3,7 +3,7 @@
   "plugins": ["stylelint-order"],
   "rules": {
     "string-quotes": "single",
-    "scss/dollar-variable-pattern": "^[a-z]+__[a-z0-9-]*$",
+    "scss/dollar-variable-pattern": "^[a-z-]+__[a-z0-9-]*$",
     "order/order": ["custom-properties", "declarations", "at-rules", "rules"],
     "order/properties-alphabetical-order": true,
     "comment-no-empty": true,

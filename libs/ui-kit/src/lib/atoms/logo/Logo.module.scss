@@ -1,12 +1,16 @@
+@import 'design/settings/colors';
+@import 'design/settings/font-weights';
 @import 'design/tools/sizing';
 
 .logo {
-  box-sizing: content-box;
-  display: block;
-  width: rem(16);
-  padding: 0 rem(16);
+	align-items: center;
+	box-sizing: content-box;
+	color: $color__basic-900;
+	display: flex;
+	padding: 0 rem(16);
 
-  &__icon {
-    color: black;
-  }
+	&__icon {
+		color: black;
+		width: rem(16);
+	}
 }

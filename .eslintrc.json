@@ -50,6 +50,7 @@
           "args": "all",
           "argsIgnorePattern": "^_"
         }],
+        "@typescript-eslint/explicit-function-return-type": ["error"],
         "react/self-closing-comp": ["error", { "component": true, "html": true }],
         "react/no-multi-comp": "error",
         "react/prefer-stateless-function": "error",

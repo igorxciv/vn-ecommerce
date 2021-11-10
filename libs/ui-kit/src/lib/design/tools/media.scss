@@ -1,0 +1,19 @@
+@import '../settings/screen-sizes';
+
+@mixin medium-screen {
+	@media (min-width: $screen-size__medium) {
+		@content;
+	}
+}
+
+@mixin large-screen {
+	@media (min-width: $screen-size__large) {
+		@content;
+	}
+}
+
+@mixin extra-large-screen {
+	@media (min-width: $screen-size__xlarge) {
+		@content;
+	}
+}
