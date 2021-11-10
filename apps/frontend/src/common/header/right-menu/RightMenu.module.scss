@@ -1,0 +1,14 @@
+@import 'design/settings/colors';
+@import 'design/tools/sizing';
+
+.right-menu {
+	display: flex;
+
+	&__link {
+		box-sizing: content-box;
+		color: $color__basic-900;
+		display: block;
+		padding: rem(10);
+		width: rem(20);
+	}
+}

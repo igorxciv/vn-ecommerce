@@ -44,6 +44,12 @@
         "padding-line-between-statements": ["error", { "blankLine": "always", "prev": "*", "next": "return" }],
         "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
 
+        "@typescript-eslint/explicit-module-boundary-types": ["error"],
+        "@typescript-eslint/no-explicit-any": ["error"],
+        "@typescript-eslint/no-unused-vars": ["error", {
+          "args": "all",
+          "argsIgnorePattern": "^_"
+        }],
         "react/self-closing-comp": ["error", { "component": true, "html": true }],
         "react/no-multi-comp": "error",
         "react/prefer-stateless-function": "error",
@@ -57,8 +63,8 @@
           "groups": ["builtin", "external", "internal", "sibling"],
           "newlines-between": "never",
           "pathGroups": [
-            { "pattern": "react", "group": "external", "position": "before" },
-            { "pattern": "*.scss", "group": "internal", "position": "after" }
+            { "pattern": "*.scss", "group": "internal", "position": "after" },
+            { "pattern": "*.(svg|png|jpeg)", "group": "internal", "position": "after" }
           ]
         }],
         "import/no-duplicates": ["error"]
@@ -67,20 +73,26 @@
     {
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nrwl/nx/typescript"],
-      "rules": {
-        "@typescript-eslint/explicit-function-return-type": ["error"],
-        "@typescript-eslint/explicit-module-boundary-types": ["error"],
-        "@typescript-eslint/no-explicit-any": ["error"],
-        "@typescript-eslint/no-unused-vars": ["error", {
-          "args": "all",
-          "argsIgnorePattern": "^_"
-        }]
-      }
+      "rules": {}
     },
     {
       "files": ["*.js", "*.jsx"],
       "extends": ["plugin:@nrwl/nx/javascript"],
       "rules": {}
     }
-  ]
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": [
+          "libs/*/tsconfig.json",
+          "apps/*/tsconfig.json"
+        ]
+      }
+    }
+  }
 }
