@@ -1,6 +1,10 @@
 @import 'design/generic/layout';
+@import 'design/settings/screen-sizes';
 
 .content {
 	@extend %body-padding;
 	@extend %page-container;
+
+	margin: 0 auto;
+	max-width: $screen-size__max;
 }

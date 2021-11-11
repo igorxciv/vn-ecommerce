@@ -1,12 +1,11 @@
+@import 'design/settings/screen-sizes';
 @import 'design/settings/colors';
 @import 'design/tools/sizing';
 @import 'design/tools/media';
-@import 'design/generic/layout';
 @import 'design/tools/transitions';
+@import 'design/generic/layout';
 
 .header {
-	@extend %page-container;
-
 	background-color: $color__basic-100;
 	border-bottom: rem(1) solid $color__basic-200;
 	left: 0;
@@ -53,6 +52,14 @@
 		@include large-screen {
 			border-bottom: none;
 		}
+	}
+
+	&__menu,
+	&__navigation {
+		@extend %page-container;
+
+		margin: 0 auto;
+		max-width: $screen-size__max;
 	}
 
 	&__menu {
