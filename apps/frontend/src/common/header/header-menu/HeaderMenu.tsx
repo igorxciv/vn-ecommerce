@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import classNames from 'classnames/bind';
 import { useTranslation } from 'react-i18next';
 import { Logo } from '@vn-ecommerce/ui-kit/atoms/logo';

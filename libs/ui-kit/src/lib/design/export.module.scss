@@ -1,8 +1,13 @@
 /* stylelint-disable selector-pseudo-class-no-unknown, property-no-unknown */
 
 @import './settings/screen-sizes';
+@import './components/mobile-menu';
 
 :export {
+	/* components */
+
+	mobile-menu__transition-duration: $mobile-menu__transition-duration;
+
 	/* screen */
 
 	screen-size__large: $screen-size__large;

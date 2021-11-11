@@ -33,7 +33,7 @@
 			transform: scaleX(0);
 			width: calc(100% - #{rem(12) * 2});
 
-			@include property-animation('transform', 0.2);
+			@include property-animation('transform', 200);
 		}
 
 		&:hover {

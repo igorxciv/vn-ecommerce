@@ -22,7 +22,7 @@
         ],
 
         "no-empty": "error",
-        "no-unused-vars": "off",
+        "no-unused-vars": "error",
         "no-plusplus": [
           "error",
           {
@@ -58,6 +58,7 @@
         "react/jsx-boolean-value": ["error", "never"],
         "react/jsx-key": "error",
         "react/react-in-jsx-scope": "off",
+        "react/prop-types": "off",
 
         "import/no-default-export": "error",
         "import/order": ["error", {

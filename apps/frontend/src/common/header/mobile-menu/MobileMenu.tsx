@@ -1,5 +1,4 @@
-import { FC } from 'react';
-import { createPortal } from 'react-dom';
+import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithoutRef } from 'react';
 import classNames from 'classnames/bind';
 import { useHistory } from 'react-router-dom';
 import { MenuItems } from './menu-items';
@@ -10,13 +9,14 @@ const cx = classNames.bind(styles);
 
 type Props = {
 	onClose: () => void;
-};
+} & HTMLAttributes<HTMLDivElement>;
 
-export const MobileMenu: FC<Props> = (props: Props) => {
-	const { onClose } = props;
+export const MobileMenu = forwardRef((props: PropsWithoutRef<Props>, ref: ForwardedRef<HTMLDivElement>) => {
+	const { onClose, className } = props;
+
 	const mobileMenuClasses = cx('mobile-menu');
 	const overlayClasses = cx('mobile-menu__overlay');
-	const layerClasses = cx('mobile-menu__layer');
+	const layerClasses = cx('mobile-menu__layer', className);
 	const separatorClasses = cx('mobile-menu__separator');
 
 	const history = useHistory();
@@ -25,15 +25,16 @@ export const MobileMenu: FC<Props> = (props: Props) => {
 		onClose();
 	});
 
-	return createPortal(
-		<div className={mobileMenuClasses}>
+	return (
+		<div ref={ref} className={mobileMenuClasses}>
 			<div role="presentation" className={overlayClasses} onClick={onClose} />
 			<div className={layerClasses}>
 				<MenuHead />
 				<MenuItems />
 				<hr className={separatorClasses} />
 			</div>
-		</div>,
-		document.body,
+		</div>
 	);
-};
+});
+
+MobileMenu.displayName = 'MobileMenu';

@@ -6,3 +6,7 @@ export const ScreenSizes = {
 	Large: parseInt(StyleVariables['screen-size__large']),
 	ExtraLarge: parseInt(StyleVariables['screen-size__xlarge']),
 };
+
+export const TransitionDuration = {
+	MobileMenuOpen: parseInt(StyleVariables['mobile-menu__transition-duration']),
+};
