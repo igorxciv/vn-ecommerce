@@ -1,7 +1,8 @@
 @import 'design/tools/media';
 
 .left-menu {
-	justify-self: flex-start;
+	left: 0;
+	position: absolute;
 
 	&__hamburger {
 		@include large-screen {

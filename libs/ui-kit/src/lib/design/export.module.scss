@@ -1,0 +1,12 @@
+/* stylelint-disable selector-pseudo-class-no-unknown, property-no-unknown */
+
+@import './settings/screen-sizes';
+
+:export {
+	/* screen */
+
+	screen-size__large: $screen-size__large;
+	screen-size__medium: $screen-size__medium;
+	screen-size__small: $screen-size__small;
+	screen-size__xlarge: $screen-size__xlarge;
+}

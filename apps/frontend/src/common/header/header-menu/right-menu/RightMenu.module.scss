@@ -3,7 +3,8 @@
 
 .right-menu {
 	display: flex;
-	justify-self: end;
+	position: absolute;
+	right: 0;
 
 	&__link {
 		box-sizing: content-box;
