@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { createPortal } from 'react-dom';
 import classNames from 'classnames/bind';
+import { useHistory } from 'react-router-dom';
 import { MenuItems } from './menu-items';
 import { MenuHead } from './menu-head';
 import styles from './MobileMenu.module.scss';
@@ -17,6 +18,12 @@ export const MobileMenu: FC<Props> = (props: Props) => {
 	const overlayClasses = cx('mobile-menu__overlay');
 	const layerClasses = cx('mobile-menu__layer');
 	const separatorClasses = cx('mobile-menu__separator');
+
+	const history = useHistory();
+
+	history.listen(() => {
+		onClose();
+	});
 
 	return createPortal(
 		<div className={mobileMenuClasses}>
