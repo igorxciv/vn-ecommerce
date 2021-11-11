@@ -2,10 +2,11 @@ import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import { ReactComponent as LogoIcon } from '@vn-ecommerce/ui-kit/icons/logo.svg';
 import { ReactComponent as CartIcon } from '@vn-ecommerce/ui-kit/icons/shopping-bag.svg';
+import { useScrollDirectionChange, useTopState } from '@frontend/libs/scroll';
 import styles from './Header.module.scss';
+import { MobileMenu } from './mobile-menu';
 import { HeaderMenu } from './header-menu';
 import { NavigationMenu } from './navigation-menu';
-import { useScrollDirectionChange, useTopState } from '../../libs/scroll';
 
 const cx = classNames.bind(styles);
 

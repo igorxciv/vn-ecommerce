@@ -1,0 +1,1 @@
+export { MenuHead } from './MenuHead';
