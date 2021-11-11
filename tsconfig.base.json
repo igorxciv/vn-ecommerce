@@ -16,7 +16,8 @@
 		"skipDefaultLibCheck": true,
 		"baseUrl": ".",
 		"paths": {
-			"@vn-ecommerce/ui-kit/*": ["libs/ui-kit/src/lib/*"]
+			"@vn-ecommerce/ui-kit/*": ["libs/ui-kit/src/lib/*"],
+      "@frontend/*": ["apps/frontend/src/*"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]
