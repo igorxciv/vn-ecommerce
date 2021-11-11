@@ -6,7 +6,7 @@ import { Cart } from '@frontend/pages/cart';
 import { Tabs } from '@frontend/pages/tabs';
 import { Courses } from '@frontend/pages/courses';
 import { Analysis } from '@frontend/pages/analysis';
-import { GuitarSuggest } from '@frontend/pages/guitar-recommendation';
+import { Guitars } from '@frontend/pages/guitars';
 import styles from './RoutableContent.module.scss';
 
 const cx = classNames.bind(styles);
@@ -22,7 +22,7 @@ export const RoutableContent: FC = () => {
 				<Route path="/tabs" component={Tabs} />
 				<Route path="/courses" component={Courses} />
 				<Route path="/analysis" component={Analysis} />
-				<Route path="/guitar-suggest" component={GuitarSuggest} />
+				<Route path="/guitar-suggest" component={Guitars} />
 				<Redirect to="/" />
 			</Switch>
 		</main>

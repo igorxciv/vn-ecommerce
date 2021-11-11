@@ -1,1 +1,0 @@
-export { GuitarSuggest } from './GuitarSuggest';
