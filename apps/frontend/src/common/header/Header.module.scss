@@ -25,7 +25,7 @@
 
 	&--compact {
 		@include large-screen {
-			transform: translateY(rem(-60));
+			transform: translateY(rem(-85));
 		}
 
 		.header__navigation {

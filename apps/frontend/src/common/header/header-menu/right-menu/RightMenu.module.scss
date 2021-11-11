@@ -1,5 +1,6 @@
 @import 'design/settings/colors';
 @import 'design/tools/sizing';
+@import 'design/tools/media';
 
 .right-menu {
 	display: flex;
@@ -12,5 +13,13 @@
 		display: block;
 		padding: rem(10);
 		width: rem(20);
+	}
+
+	&__user {
+		display: none;
+
+		@include large-screen {
+			display: block;
+		}
 	}
 }

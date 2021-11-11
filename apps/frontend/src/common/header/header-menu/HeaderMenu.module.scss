@@ -1,6 +1,13 @@
+@import 'design/tools/sizing';
+@import 'design/tools/media';
+
 .header-menu {
 	align-items: center;
 	display: flex;
 	justify-content: center;
 	position: relative;
+
+	@include large-screen {
+		padding: rem(20) 0 rem(5);
+	}
 }
