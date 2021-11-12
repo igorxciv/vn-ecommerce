@@ -1,6 +1,7 @@
 import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithoutRef, useState } from 'react';
 import classNames from 'classnames/bind';
 import { useHistory } from 'react-router-dom';
+import { useScrollLock } from '@frontend/libs/scroll';
 import { SideBarItems } from './sidebar-items';
 import { SidebarHead } from './sidebar-head';
 import styles from './Sidebar.module.scss';
@@ -21,6 +22,8 @@ export const Sidebar = forwardRef((props: PropsWithoutRef<Props>, ref: Forwarded
 	const separatorClasses = cx('sidebar__separator');
 
 	const history = useHistory();
+
+	useScrollLock();
 
 	history.listen(() => {
 		onClose();

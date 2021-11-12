@@ -68,3 +68,13 @@ export function useScrollDirectionChange(threshold = 10): ScrollDirection {
 
 	return direction;
 }
+
+export function useScrollLock(): void {
+	useEffect(() => {
+		document.body.style.overflow = 'hidden';
+
+		return () => {
+			document.body.style.overflow = 'auto';
+		};
+	}, []);
+}
