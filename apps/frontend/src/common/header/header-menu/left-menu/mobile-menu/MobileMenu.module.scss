@@ -1,0 +1,18 @@
+@import 'design/tools/transitions';
+@import 'design/tools/media';
+
+.mobile-menu {
+	&__sidebar {
+		transform: translateX(-100%);
+
+		@include property-animation('transform');
+
+		@include large-screen {
+			display: none;
+		}
+
+		&--entered {
+			transform: translateX(0);
+		}
+	}
+}

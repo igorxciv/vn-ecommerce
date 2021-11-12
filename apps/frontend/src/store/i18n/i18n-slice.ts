@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { setLocaleAsync } from './i18n-thunks';
 
 const i18nSlice = createSlice({
 	name: 'i18n',
@@ -9,6 +10,11 @@ const i18nSlice = createSlice({
 		setLocale: (state, action) => {
 			state.locale = action.payload;
 		},
+	},
+	extraReducers: (builder) => {
+		builder.addCase(setLocaleAsync.fulfilled, (state, { payload }) => {
+			state.locale = payload;
+		});
 	},
 });
 

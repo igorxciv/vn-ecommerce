@@ -2,8 +2,9 @@
 
 @import 'design/settings/colors';
 @import 'design/tools/sizing';
+@import 'design/utilities/animations';
 
-.mobile-menu {
+.sidebar {
 	bottom: 0;
 	left: 0;
 	position: fixed;
@@ -12,8 +13,13 @@
 	z-index: 2;
 
 	&__overlay {
+		animation-duration: 0.2s;
+		animation-fill-mode: forwards;
+		animation-name: appear;
+		animation-timing-function: ease-out;
 		background-color: color.adjust($color__basic-900, $alpha: -0.85);
 		height: 100%;
+		opacity: 0%;
 		width: 100%;
 	}
 

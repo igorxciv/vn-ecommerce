@@ -4,20 +4,4 @@
 .left-menu {
 	left: 0;
 	position: absolute;
-
-	&__hamburger {
-		@include large-screen {
-			display: none;
-		}
-	}
-
-	&__mobile-menu {
-		transform: translateX(-100%);
-
-		@include property-animation('transform');
-
-		&--entered {
-			transform: translateX(0);
-		}
-	}
 }

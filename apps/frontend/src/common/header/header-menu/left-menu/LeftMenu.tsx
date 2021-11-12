@@ -1,51 +1,18 @@
-import { FC, useRef, useState } from 'react';
+import { FC } from 'react';
 import classNames from 'classnames/bind';
-import { Transition } from 'react-transition-group';
-import { createPortal } from 'react-dom';
-import { MobileMenu } from '@frontend/common/header/mobile-menu';
-import { TransitionDuration } from '@vn-ecommerce/ui-kit/design/constants';
+import { ScreenSizes } from '@vn-ecommerce/ui-kit/design/constants';
+import { useScreenSizeMatch } from '@frontend/libs/screen-size';
+import { MobileMenu } from '@frontend/common/header/header-menu/left-menu/mobile-menu/MobileMenu';
 import styles from './LeftMenu.module.scss';
-import { Hamburger } from './hamburger';
 
 const cx = classNames.bind(styles);
 
 export const LeftMenu: FC = () => {
-	const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
-	const mobileMenuRef = useRef<HTMLDivElement>(null);
+	const isMobile = useScreenSizeMatch({ maxWidth: ScreenSizes.Large });
 
 	const leftMenuClasses = cx('left-menu');
-	const hamburgerClasses = cx('left-menu__hamburger');
 
-	const handleMobileMenuClose = () => {
-		setMobileMenuVisible(false);
-	};
+	const mobileMenu = isMobile && <MobileMenu />;
 
-	const handleMobileMenuOpen = () => {
-		setMobileMenuVisible(true);
-	};
-
-	const mobileMenu = createPortal(
-		<Transition
-			nodeRef={mobileMenuRef}
-			in={mobileMenuVisible}
-			mountOnEnter
-			unmountOnExit
-			timeout={{ exit: TransitionDuration.MobileMenuOpen }}>
-			{(state) => {
-				const mobileMenuClasses = cx('left-menu__mobile-menu', `left-menu__mobile-menu--${state}`);
-
-				return <MobileMenu ref={mobileMenuRef} onClose={handleMobileMenuClose} className={mobileMenuClasses} />;
-			}}
-		</Transition>,
-		document.body,
-	);
-
-	return (
-		<div className={leftMenuClasses}>
-			<div className={hamburgerClasses}>
-				<Hamburger onClick={handleMobileMenuOpen} />
-			</div>
-			{mobileMenu}
-		</div>
-	);
+	return <div className={leftMenuClasses}>{mobileMenu}</div>;
 };
