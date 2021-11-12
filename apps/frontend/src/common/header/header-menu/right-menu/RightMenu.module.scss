@@ -4,8 +4,7 @@
 
 .right-menu {
 	display: flex;
-	position: absolute;
-	right: 0;
+	justify-self: flex-end;
 
 	&__link {
 		box-sizing: content-box;

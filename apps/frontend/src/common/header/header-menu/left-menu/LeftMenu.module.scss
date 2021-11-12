@@ -2,6 +2,5 @@
 @import 'design/tools/transitions';
 
 .left-menu {
-	left: 0;
-	position: absolute;
+	justify-self: flex-start;
 }

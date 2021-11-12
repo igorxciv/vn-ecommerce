@@ -5,6 +5,7 @@ const i18nSlice = createSlice({
 	name: 'i18n',
 	initialState: {
 		locale: 'en',
+		language: 'English',
 	},
 	reducers: {
 		setLocale: (state, action) => {

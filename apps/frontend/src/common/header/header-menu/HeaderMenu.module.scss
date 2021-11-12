@@ -3,9 +3,10 @@
 
 .header-menu {
 	align-items: center;
-	display: flex;
-	justify-content: center;
-	position: relative;
+	display: grid;
+	grid-auto-flow: column;
+	grid-template-columns: 1fr 1fr 1fr;
+	justify-items: center;
 
 	@include large-screen {
 		padding: rem(20) 0 rem(5);

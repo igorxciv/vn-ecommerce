@@ -1,0 +1,20 @@
+@import 'design/settings/fonts';
+@import 'design/settings/font-weights';
+@import 'design/tools/sizing';
+
+.language-selector {
+	align-items: center;
+	display: flex;
+	gap: rem(5);
+
+	&__language {
+		font-family: $font__secondary;
+		font-weight: $font-weight__light;
+	}
+
+	&__icon {
+		display: flex;
+		height: rem(13);
+		width: rem(26);
+	}
+}
