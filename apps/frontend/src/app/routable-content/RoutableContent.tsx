@@ -9,6 +9,7 @@ import { Analysis } from '@frontend/pages/analysis';
 import { Guitars } from '@frontend/pages/guitars';
 import { useAppDispatch } from '@frontend/store/hooks';
 import { setLocaleAsync } from '@frontend/store/i18n';
+import { Account } from '@frontend/pages/account';
 import styles from './RoutableContent.module.scss';
 
 const cx = classNames.bind(styles);
@@ -30,6 +31,7 @@ export const RoutableContent: FC = () => {
 				<Route path="/courses" component={Courses} />
 				<Route path="/analysis" component={Analysis} />
 				<Route path="/guitar-suggest" component={Guitars} />
+				<Route path="/account" component={Account} />
 				<Redirect to="/" />
 			</Switch>
 		</main>
