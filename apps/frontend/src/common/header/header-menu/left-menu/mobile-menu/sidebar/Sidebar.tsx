@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithoutRef } from 'react';
+import { ForwardedRef, forwardRef, HTMLAttributes, PropsWithoutRef, useState } from 'react';
 import classNames from 'classnames/bind';
 import { useHistory } from 'react-router-dom';
 import { SideBarItems } from './sidebar-items';
@@ -9,14 +9,14 @@ const cx = classNames.bind(styles);
 
 type Props = {
 	onClose: () => void;
-	closed?: boolean;
+	closing?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
 export const Sidebar = forwardRef((props: PropsWithoutRef<Props>, ref: ForwardedRef<HTMLDivElement>) => {
-	const { onClose, className } = props;
+	const { onClose, closing = false, className } = props;
 
 	const sidebarClasses = cx('sidebar');
-	const overlayClasses = cx('sidebar__overlay');
+	const overlayClasses = cx('sidebar__overlay', { 'sidebar__overlay--closing': closing });
 	const layerClasses = cx('sidebar__layer', className);
 	const separatorClasses = cx('sidebar__separator');
 

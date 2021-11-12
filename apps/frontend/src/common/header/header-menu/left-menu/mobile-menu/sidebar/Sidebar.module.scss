@@ -21,6 +21,10 @@
 		height: 100%;
 		opacity: 0%;
 		width: 100%;
+
+		&--closing {
+			animation-name: disappear;
+		}
 	}
 
 	&__layer {

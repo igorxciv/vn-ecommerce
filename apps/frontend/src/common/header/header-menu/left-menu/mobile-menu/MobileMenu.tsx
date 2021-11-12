@@ -31,7 +31,7 @@ export const MobileMenu: FC = () => {
 			{(state) => {
 				const sidebarClasses = cx('mobile-menu__sidebar', `mobile-menu__sidebar--${state}`);
 
-				return <Sidebar ref={mobileMenuRef} onClose={handleSidebarClose} className={sidebarClasses} />;
+				return <Sidebar ref={mobileMenuRef} closing={state === 'exiting'} onClose={handleSidebarClose} className={sidebarClasses} />;
 			}}
 		</Transition>,
 		document.body,
