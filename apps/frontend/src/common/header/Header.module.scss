@@ -29,7 +29,8 @@
 
 		.header__navigation {
 			@include large-screen {
-				padding: rem(15) 0;
+				padding-bottom: rem(15);
+				padding-top: rem(15);
 			}
 		}
 
@@ -73,11 +74,18 @@
 		display: none;
 		justify-content: center;
 		opacity: 100%;
-		position: relative;
 
 		@include large-screen {
 			display: flex;
 		}
+	}
+
+	&__navigation-inner {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		position: relative;
+		width: 100%;
 	}
 
 	&__logo,

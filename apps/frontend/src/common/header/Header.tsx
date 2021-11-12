@@ -18,6 +18,7 @@ export const Header = () => {
 	const headerClasses = cx('header', { 'header--compact': isCompact, 'header--top': isTop });
 	const menuClasses = cx('header__menu', { 'header__menu--compact': isCompact });
 	const navigationClasses = cx('header__navigation');
+	const navigationInnerClasses = cx('header__navigation-inner');
 	const logoClasses = cx('header__logo');
 	const cartClasses = cx('header__cart');
 
@@ -27,13 +28,15 @@ export const Header = () => {
 				<HeaderMenu />
 			</div>
 			<div className={navigationClasses}>
-				<Link to="/" className={logoClasses}>
-					<LogoIcon />
-				</Link>
-				<NavigationMenu />
-				<Link to="/cart" className={cartClasses}>
-					<CartIcon />
-				</Link>
+				<div className={navigationInnerClasses}>
+					<Link to="/" className={logoClasses}>
+						<LogoIcon />
+					</Link>
+					<NavigationMenu />
+					<Link to="/cart" className={cartClasses}>
+						<CartIcon />
+					</Link>
+				</div>
 			</div>
 		</header>
 	);
