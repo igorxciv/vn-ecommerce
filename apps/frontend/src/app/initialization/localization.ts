@@ -8,6 +8,7 @@ export async function setupLocalization(): Promise<void> {
 	await i18next.init({
 		interpolation: { escapeValue: false },
 		lng: 'en',
+
 		resources: {
 			en: {
 				common: common_en,
