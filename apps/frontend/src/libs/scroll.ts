@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-// import { debounce } from './performance';
+import { debounce } from './performance';
 
 export type ScrollDirection = 'up' | 'down';
 
@@ -19,12 +19,12 @@ export function useTopState(): boolean {
 
 		onScroll();
 
-		// const debouncedScroll = debounce(150, onScroll);
+		const debouncedScroll = debounce(150, onScroll);
 
-		window.addEventListener('scroll', onScroll);
+		window.addEventListener('scroll', debouncedScroll);
 
 		return () => {
-			window.removeEventListener('scroll', onScroll);
+			window.removeEventListener('scroll', debouncedScroll);
 		};
 	}, []);
 
@@ -36,29 +36,27 @@ export function useScrollDirectionChange(threshold = 10): ScrollDirection {
 
 	useEffect(() => {
 		let prevScrollY = window.scrollY;
-		// let ticking = false;
+		let ticking = false;
 
 		const updateScrollDirection = () => {
 			const { scrollY } = window;
 
-			// if (Math.abs(scrollY - prevScrollY) < threshold) {
-			// 	ticking = false;
-			//
-			// 	return;
-			// }
+			if (Math.abs(scrollY - prevScrollY) < threshold) {
+				ticking = false;
+
+				return;
+			}
 
 			setDirection(scrollY > prevScrollY ? 'down' : 'up');
 			prevScrollY = scrollY > 0 ? scrollY : 0;
-			// ticking = false;
+			ticking = false;
 		};
 
 		const onScroll = () => {
-			console.log('scroll');
-			// if (!ticking) {
-			updateScrollDirection();
-			// window.requestAnimationFrame(updateScrollDirection);
-			// ticking = true;
-			// }
+			if (!ticking) {
+				window.requestAnimationFrame(updateScrollDirection);
+				ticking = true;
+			}
 		};
 
 		window.addEventListener('scroll', onScroll);
