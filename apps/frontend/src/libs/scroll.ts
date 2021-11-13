@@ -78,3 +78,15 @@ export function useScrollLock(): void {
 		};
 	}, []);
 }
+
+export function useScrollCallback(callback: () => void): void {
+	useEffect(() => {
+		const debouncedCallback = debounce(150, callback);
+
+		window.addEventListener('scroll', debouncedCallback);
+
+		return () => {
+			window.removeEventListener('scroll', debouncedCallback);
+		};
+	}, [callback]);
+}

@@ -7,6 +7,7 @@ import { ReactComponent as ChevronIcon } from '@vn-ecommerce/ui-kit/icons/chevro
 import { useClickOutside } from '@frontend/libs/interaction';
 import { LanguagesList } from '@frontend/common/header/header-menu/left-menu/language-selector/languages-list';
 import { TransitionDuration } from '@vn-ecommerce/ui-kit/design/constants';
+import { useScrollCallback } from '@frontend/libs/scroll';
 import styles from './LanguageSelector.module.scss';
 
 const cx = classNames.bind(styles);
@@ -28,6 +29,10 @@ export const LanguageSelector: FC = () => {
 	};
 
 	useClickOutside(selectorRef, () => {
+		setOpened(false);
+	});
+
+	useScrollCallback(() => {
 		setOpened(false);
 	});
 
