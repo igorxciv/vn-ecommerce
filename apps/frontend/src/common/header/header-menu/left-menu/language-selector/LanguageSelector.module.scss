@@ -3,6 +3,8 @@
 @import 'design/settings/font-weights';
 @import 'design/tools/sizing';
 @import 'design/tools/transitions';
+@import 'design/components/language-selector';
+@import 'design/utilities/animations';
 
 .language-selector {
 	&__button {
@@ -13,6 +15,17 @@
 		display: flex;
 		gap: rem(5);
 		padding: rem(5) rem(10);
+	}
+
+	&__languages {
+		animation-duration: $language-selector__transition-duration;
+		animation-fill-mode: forwards;
+		animation-name: appear;
+		animation-timing-function: ease-out;
+
+		&--exiting {
+			animation-name: disappear;
+		}
 	}
 
 	&__language {

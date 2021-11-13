@@ -9,4 +9,5 @@ export const ScreenSizes = {
 
 export const TransitionDuration = {
 	MobileMenuOpen: parseInt(StyleVariables['mobile-menu__transition-duration']),
+	LanguageSelectorOpen: parseInt(StyleVariables['language-selector__transition-duration']),
 };

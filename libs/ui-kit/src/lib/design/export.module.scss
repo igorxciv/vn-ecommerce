@@ -2,10 +2,12 @@
 
 @import './settings/screen-sizes';
 @import './components/mobile-menu';
+@import './components/language-selector';
 
 :export {
 	/* components */
 
+	language-selector__transition-duration: $language-selector__transition-duration;
 	mobile-menu__transition-duration: $mobile-menu__transition-duration;
 
 	/* screen */
