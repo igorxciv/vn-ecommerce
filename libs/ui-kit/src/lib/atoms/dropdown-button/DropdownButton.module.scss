@@ -34,9 +34,10 @@
 	&__icon {
 		height: rem(14);
 		margin-left: rem(5);
+		transform: rotate(0);
 		width: rem(14);
 
-		@include property-animation('transform', 0.2);
+		@include property-animation('transform', 200);
 
 		&--expanded {
 			transform: rotate(180deg);

@@ -1,23 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Language, Locale, LANGUAGE_MAP } from '@frontend/libs/i18n';
 import { setLocaleAsync } from './i18n-thunks';
-
-type InitialState = {
-	locale: Locale;
-	language: Language;
-};
+import { i18nState } from './types';
 
 const i18nSlice = createSlice({
 	name: 'i18n',
 	initialState: {
 		locale: 'en',
 		language: 'English',
-	} as InitialState,
+		languagesMap: {
+			en: 'English',
+			ru: 'Русский',
+		},
+	} as i18nState,
 	reducers: {},
 	extraReducers: (builder) => {
 		builder.addCase(setLocaleAsync.fulfilled, (state, { payload }) => {
 			state.locale = payload;
-			state.language = LANGUAGE_MAP[payload];
+			state.language = state.languagesMap[payload];
 		});
 	},
 });
