@@ -3,6 +3,7 @@
 @import 'design/tools/sizing';
 @import 'design/tools/media';
 @import 'design/tools/transitions';
+@import 'design/components/header';
 @import 'design/generic/layout';
 
 .header {
@@ -15,17 +16,15 @@
 	width: 100%;
 	z-index: 1;
 
-	@include property-animation('transform', 200ms);
-
 	@include large-screen {
 		padding-bottom: 0;
 		padding-top: 0;
 	}
 
+	@include property-animation('transform', $header__collapse-transition-duration, ease-in-out);
+
 	&--compact {
-		@include large-screen {
-			transform: translateY(rem(-85));
-		}
+		transform: translateY(rem(-85));
 	}
 
 	&--top {
@@ -50,6 +49,7 @@
 		&--compact {
 			@include large-screen {
 				opacity: 0%;
+				visibility: hidden;
 			}
 		}
 	}
