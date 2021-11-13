@@ -1,7 +1,4 @@
 import classNames from 'classnames/bind';
-import { Link } from 'react-router-dom';
-import { ReactComponent as LogoIcon } from '@vn-ecommerce/ui-kit/icons/logo.svg';
-import { ReactComponent as CartIcon } from '@vn-ecommerce/ui-kit/icons/shopping-bag.svg';
 import { useScrollDirectionChange, useTopState } from '@frontend/libs/scroll';
 import styles from './Header.module.scss';
 import { HeaderMenu } from './header-menu';
@@ -12,14 +9,11 @@ const cx = classNames.bind(styles);
 export const Header = () => {
 	const direction = useScrollDirectionChange();
 	const isTop = useTopState();
-	const isCompact = direction === 'down';
+	const compact = direction === 'down';
 
-	const headerClasses = cx('header', { 'header--compact': isCompact, 'header--top': isTop });
-	const menuClasses = cx('header__menu', { 'header__menu--compact': isCompact });
+	const headerClasses = cx('header', { 'header--compact': compact, 'header--top': isTop });
+	const menuClasses = cx('header__menu', { 'header__menu--compact': compact });
 	const navigationClasses = cx('header__navigation');
-	const navigationInnerClasses = cx('header__navigation-inner');
-	const logoClasses = cx('header__logo');
-	const cartClasses = cx('header__cart');
 
 	return (
 		<header className={headerClasses}>
@@ -27,15 +21,7 @@ export const Header = () => {
 				<HeaderMenu />
 			</div>
 			<div className={navigationClasses}>
-				<div className={navigationInnerClasses}>
-					<Link to="/" className={logoClasses}>
-						<LogoIcon />
-					</Link>
-					<NavigationMenu />
-					<Link to="/cart" className={cartClasses}>
-						<CartIcon />
-					</Link>
-				</div>
+				<NavigationMenu compact={compact} />
 			</div>
 		</header>
 	);

@@ -3,12 +3,14 @@
 @import './settings/screen-sizes';
 @import './components/mobile-menu';
 @import './components/language-selector';
+@import './components/navigation-menu';
 
 :export {
 	/* components */
 
 	language-selector__transition-duration: $language-selector__transition-duration;
 	mobile-menu__transition-duration: $mobile-menu__transition-duration;
+	navigation-menu__side-items-transition-duration: $navigation-menu__side-items-transition-duration;
 
 	/* screen */
 

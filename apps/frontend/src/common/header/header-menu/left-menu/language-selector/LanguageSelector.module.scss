@@ -22,6 +22,8 @@
 		animation-fill-mode: forwards;
 		animation-name: appear;
 		animation-timing-function: ease-out;
+		position: absolute;
+		z-index: 1;
 
 		&--exiting {
 			animation-name: disappear;
@@ -37,7 +39,7 @@
 		height: rem(14);
 		width: rem(14);
 
-		@include property-animation('transform', 200);
+		@include property-animation('transform', 200ms);
 
 		&--expanded {
 			transform: rotate(-180deg);

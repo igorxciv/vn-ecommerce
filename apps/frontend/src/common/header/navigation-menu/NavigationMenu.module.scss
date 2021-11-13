@@ -1,0 +1,46 @@
+@import 'design/settings/colors';
+@import 'design/tools/sizing';
+@import 'design/tools/transitions';
+@import 'design/tools/media';
+@import 'design/components/navigation-menu';
+
+.navigation-menu {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	position: relative;
+	width: 100%;
+
+	&__logo,
+	&__cart {
+		box-sizing: content-box;
+		color: $color__basic-900;
+		display: none;
+		opacity: 0%;
+		position: absolute;
+		transform: translateY(rem(20));
+		width: rem(20);
+
+		@include property-animation(('opacity', 'transform'), $navigation-menu__side-items-transition-duration);
+
+		@include large-screen {
+			display: block;
+		}
+
+		&--entering,
+		&--entered {
+			opacity: 100%;
+			transform: translateY(0);
+		}
+	}
+
+	&__logo {
+		left: 0;
+		padding: 0 rem(10);
+	}
+
+	&__cart {
+		padding: rem(10);
+		right: 0;
+	}
+}

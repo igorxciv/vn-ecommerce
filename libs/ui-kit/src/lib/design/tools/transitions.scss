@@ -3,11 +3,11 @@
 @use 'sass:list';
 @use 'sass:string';
 
-@mixin property-animation($properties, $duration: 150, $timing-func: ease-in, $delay: 0) {
+@mixin property-animation($properties, $duration: 150ms, $timing-func: ease-in, $delay: 0ms) {
 	$animations: ();
 
 	@each $prop in $properties {
-		$animations: list.append($animations, (string.unquote($prop) #{$duration}ms $timing-func #{$delay}ms), comma);
+		$animations: list.append($animations, (string.unquote($prop) #{$duration} $timing-func #{$delay}), comma);
 	}
 
 	transition: $animations;

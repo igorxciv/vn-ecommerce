@@ -37,7 +37,7 @@
 		transform: rotate(0);
 		width: rem(14);
 
-		@include property-animation('transform', 200);
+		@include property-animation('transform', 200ms);
 
 		&--expanded {
 			transform: rotate(180deg);

@@ -15,7 +15,7 @@
 	width: 100%;
 	z-index: 1;
 
-	@include property-animation('transform', 200);
+	@include property-animation('transform', 200ms);
 
 	@include large-screen {
 		padding-bottom: 0;
@@ -39,14 +39,6 @@
 				opacity: 0%;
 			}
 		}
-
-		.header__logo,
-		.header__cart {
-			@include large-screen {
-				opacity: 100%;
-				transform: translateY(0);
-			}
-		}
 	}
 
 	&--top {
@@ -66,7 +58,7 @@
 	&__menu {
 		opacity: 100%;
 
-		@include property-animation('opacity', 300, $delay: 200);
+		@include property-animation('opacity', 300ms, $delay: 200ms);
 	}
 
 	&__navigation {
@@ -78,40 +70,5 @@
 		@include large-screen {
 			display: flex;
 		}
-	}
-
-	&__navigation-inner {
-		align-items: center;
-		display: flex;
-		justify-content: center;
-		position: relative;
-		width: 100%;
-	}
-
-	&__logo,
-	&__cart {
-		box-sizing: content-box;
-		color: $color__basic-900;
-		display: none;
-		opacity: 0%;
-		position: absolute;
-		transform: translateY(rem(20));
-		width: rem(20);
-
-		@include property-animation(('opacity', 'transform'), 300);
-
-		@include large-screen {
-			display: block;
-		}
-	}
-
-	&__logo {
-		left: 0;
-		padding: 0 rem(10);
-	}
-
-	&__cart {
-		padding: rem(10);
-		right: 0;
 	}
 }
