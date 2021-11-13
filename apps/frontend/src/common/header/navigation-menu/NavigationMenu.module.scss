@@ -11,6 +11,13 @@
 	position: relative;
 	width: 100%;
 
+	&--compact {
+		@include large-screen {
+			padding-bottom: rem(15);
+			padding-top: rem(15);
+		}
+	}
+
 	&__logo,
 	&__cart {
 		box-sizing: content-box;
