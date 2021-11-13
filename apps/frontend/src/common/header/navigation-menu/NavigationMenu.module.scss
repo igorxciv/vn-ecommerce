@@ -11,6 +11,8 @@
 	position: relative;
 	width: 100%;
 
+	@include property-animation(('padding-top', 'padding-bottom'), 300ms, ease-in-out);
+
 	&--compact {
 		@include large-screen {
 			padding-bottom: rem(15);
@@ -25,10 +27,9 @@
 		display: none;
 		opacity: 0%;
 		position: absolute;
-		transform: translateY(rem(20));
 		width: rem(20);
 
-		@include property-animation(('opacity', 'transform'), $navigation-menu__side-items-transition-duration);
+		@include property-animation('opacity', $navigation-menu__side-items-transition-duration);
 
 		@include large-screen {
 			display: block;
@@ -37,7 +38,6 @@
 		&--entering,
 		&--entered {
 			opacity: 100%;
-			transform: translateY(0);
 		}
 	}
 
