@@ -18,6 +18,7 @@ export const NavigationMenu: FC<Props> = (props: Props) => {
 	const { compact = false } = props;
 
 	const logoRef = useRef<HTMLAnchorElement>(null);
+	const cartRef = useRef<HTMLAnchorElement>(null);
 
 	const navigationClasses = cx('navigation-menu', {
 		'navigation-menu--compact': compact,
@@ -26,7 +27,7 @@ export const NavigationMenu: FC<Props> = (props: Props) => {
 	const cartClasses = cx('navigation-menu__cart');
 
 	const logo = (
-		<Transition in={compact} timeout={{ exit: TransitionDuration.NavigationMenuSideItems }} mountOnEnter unmountOnExit>
+		<Transition nodeRef={logoRef} in={compact} timeout={{ exit: TransitionDuration.NavigationMenuSideItems }} mountOnEnter unmountOnExit>
 			{(state) => (
 				<Link ref={logoRef} to="/" className={cx(logoClasses, `navigation-menu__logo--${state}`)}>
 					<LogoIcon />
@@ -36,9 +37,9 @@ export const NavigationMenu: FC<Props> = (props: Props) => {
 	);
 
 	const cart = (
-		<Transition in={compact} timeout={{ exit: TransitionDuration.NavigationMenuSideItems }} mountOnEnter unmountOnExit>
+		<Transition nodeRef={cartRef} in={compact} timeout={{ exit: TransitionDuration.NavigationMenuSideItems }} mountOnEnter unmountOnExit>
 			{(state) => (
-				<Link to="/cart" className={cx(cartClasses, `navigation-menu__cart--${state}`)}>
+				<Link ref={cartRef} to="/cart" className={cx(cartClasses, `navigation-menu__cart--${state}`)}>
 					<CartIcon />
 				</Link>
 			)}

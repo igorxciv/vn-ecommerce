@@ -1,0 +1,32 @@
+@import 'design/settings/fonts';
+@import 'design/settings/font-weights';
+@import 'design/tools/sizing';
+
+.option {
+	align-items: center;
+	display: flex;
+	position: relative;
+
+	&--selected {
+		&::before {
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='currentColor' d='M18.71 7.21a1 1 0 0 0-1.42 0l-7.45 7.46-3.13-3.14A1 1 0 1 0 5.29 13l3.84 3.84a1 1 0 0 0 1.42 0l8.16-8.16a1 1 0 0 0 0-1.47Z'/%3E%3C/svg%3E");
+			content: '';
+			height: rem(12);
+			left: rem(10);
+			position: absolute;
+			width: rem(12);
+		}
+	}
+
+	&__button {
+		align-items: center;
+		background: none;
+		border: none;
+		cursor: pointer;
+		display: flex;
+		font-family: $font__secondary;
+		font-weight: $font-weight__medium;
+		padding: rem(10) rem(25);
+		z-index: 1;
+	}
+}

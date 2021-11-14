@@ -1,1 +1,0 @@
-export { LanguagesList } from './LanguagesList';

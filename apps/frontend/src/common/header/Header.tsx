@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 import { Transition } from 'react-transition-group';
+import { useRef } from 'react';
 import { useScrollDirectionChange, useTopState } from '@frontend/libs/scroll';
 import { TransitionDuration } from '@vn-ecommerce/ui-kit/design/constants';
 import styles from './Header.module.scss';
@@ -9,6 +10,7 @@ import { NavigationMenu } from './navigation-menu';
 const cx = classNames.bind(styles);
 
 export const Header = () => {
+	const headerRef = useRef<HTMLHeadingElement>(null);
 	const direction = useScrollDirectionChange();
 	const isTop = useTopState();
 	const compact = direction === 'down';
@@ -18,9 +20,9 @@ export const Header = () => {
 	const navigationClasses = cx('header__navigation');
 
 	return (
-		<Transition in={compact} timeout={TransitionDuration.HeaderCollapse}>
+		<Transition nodeRef={headerRef} in={compact} timeout={TransitionDuration.HeaderCollapse}>
 			{(state) => (
-				<header className={cx(headerClasses)}>
+				<header ref={headerRef} className={cx(headerClasses)}>
 					<div className={cx(menuClasses, { 'header__menu--compact': state === 'entered' })}>
 						<HeaderMenu />
 					</div>

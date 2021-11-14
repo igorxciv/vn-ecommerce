@@ -1,53 +1,12 @@
-@import 'design/settings/colors';
-@import 'design/settings/fonts';
-@import 'design/settings/font-weights';
 @import 'design/tools/sizing';
-@import 'design/tools/transitions';
-@import 'design/components/language-selector';
-@import 'design/utilities/animations';
 
 .language-selector {
-	&__button {
-		align-items: center;
-		background: transparent;
-		border: none;
-		cursor: pointer;
+	&__item {
 		display: flex;
 		gap: rem(5);
-		padding: rem(5) rem(10);
-	}
-
-	&__languages {
-		animation-duration: $language-selector__transition-duration;
-		animation-fill-mode: forwards;
-		animation-name: appear;
-		animation-timing-function: ease-out;
-		position: absolute;
-		z-index: 1;
-
-		&--exiting {
-			animation-name: disappear;
-		}
-	}
-
-	&__language {
-		font-family: $font__secondary;
-		font-weight: $font-weight__light;
-	}
-
-	&__chevron {
-		height: rem(14);
-		width: rem(14);
-
-		@include property-animation('transform', 200ms);
-
-		&--expanded {
-			transform: rotate(-180deg);
-		}
 	}
 
 	&__icon {
-		display: flex;
 		height: rem(13);
 		width: rem(20);
 	}
