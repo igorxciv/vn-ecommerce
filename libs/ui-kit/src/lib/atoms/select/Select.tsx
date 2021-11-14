@@ -1,10 +1,10 @@
 import { PropsWithChildren, useState, useRef, ReactNode } from 'react';
 import classNames from 'classnames/bind';
 import { Transition } from 'react-transition-group';
-import { TransitionDuration } from '@vn-ecommerce/ui-kit/design/constants';
-import { useClickOutside } from '@vn-ecommerce/ui-kit/utils/interaction';
 import { SelectContext } from './select-context';
 import styles from './Select.module.scss';
+import { TransitionDuration } from '../../design/constants';
+import { useClickOutside } from '../../utils/interaction';
 import { ReactComponent as ChevronIcon } from '../../icons/chevron.svg';
 
 const cx = classNames.bind(styles);

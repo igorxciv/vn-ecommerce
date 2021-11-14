@@ -32,6 +32,7 @@
 
 	&__list {
 		animation: appear $select__appear-transition-duration ease-in-out forwards;
+		background-color: $color__basic-100;
 		border: rem(1) solid $color__basic-200;
 		gap: rem(5);
 		margin-top: rem(10);
