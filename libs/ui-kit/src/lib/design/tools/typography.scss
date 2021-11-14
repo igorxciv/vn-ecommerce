@@ -1,0 +1,9 @@
+@import '../settings/font-weights';
+@import '../tools/sizing';
+
+%section-title {
+	font-size: rem(18);
+	font-weight: $font-weight__medium;
+	text-align: center;
+	text-transform: uppercase;
+}

@@ -1,0 +1,16 @@
+@import 'design/settings/colors';
+@import 'design/settings/fonts';
+@import 'design/tools/sizing';
+
+.error {
+	align-items: center;
+	display: flex;
+	gap: rem(10);
+	padding: rem(5) rem(10);
+
+	&__icon {
+		color: $color__danger-900;
+		height: rem(20);
+		width: rem(20);
+	}
+}

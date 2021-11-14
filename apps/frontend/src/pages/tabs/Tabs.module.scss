@@ -1,0 +1,15 @@
+@import 'design/tools/sizing';
+@import 'design/tools/typography';
+
+.tabs {
+	&__title {
+		@extend %section-title;
+
+		margin-top: rem(25);
+		text-align: center;
+	}
+
+	&__error {
+		margin-top: rem(20);
+	}
+}

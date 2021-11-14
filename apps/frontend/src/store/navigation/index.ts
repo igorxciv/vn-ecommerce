@@ -1,1 +1,1 @@
-export { navigationReducer } from './navigation-slice';
+export { navigationReducer, navigationReducerName } from './navigation-slice';

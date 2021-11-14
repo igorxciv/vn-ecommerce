@@ -21,4 +21,4 @@ const i18nSlice = createSlice({
 	},
 });
 
-export const i18nReducer = i18nSlice.reducer;
+export const { name: i18nReducerName, reducer: i18nReducer } = i18nSlice;

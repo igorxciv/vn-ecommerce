@@ -29,4 +29,4 @@ const navigationSlice = createSlice({
 	reducers: {},
 });
 
-export const navigationReducer = navigationSlice.reducer;
+export const { reducer: navigationReducer, name: navigationReducerName } = navigationSlice;

@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { navigationReducer } from './navigation';
-import { i18nReducer } from './i18n';
+import { navigationReducer, navigationReducerName } from './navigation';
+import { i18nReducer, i18nReducerName } from './i18n';
+import { tabsReducer, tabsReducerName } from './tabs';
 
 export const store = configureStore({
 	reducer: {
-		navigation: navigationReducer,
-		i18n: i18nReducer,
+		[navigationReducerName]: navigationReducer,
+		[i18nReducerName]: i18nReducer,
+		[tabsReducerName]: tabsReducer,
 	},
 });
 
