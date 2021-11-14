@@ -16,7 +16,7 @@ describe('AppController', () => {
 		it('should return "Welcome to tabs!"', () => {
 			const appController = app.get<AppController>(AppController);
 
-			expect(appController.getData()).toEqual({ message: 'Welcome to tabs!' });
+			expect(appController.getTabs()).toEqual({ message: 'Welcome to tabs!' });
 		});
 	});
 });

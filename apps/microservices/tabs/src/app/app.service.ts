@@ -2,7 +2,13 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-	getData(): { message: string } {
-		return { message: 'Welcome to tabs!' };
+	getTabs(): unknown[] {
+		return [];
+	}
+
+	getTabById(id: string): unknown {
+		return {
+			id,
+		};
 	}
 }

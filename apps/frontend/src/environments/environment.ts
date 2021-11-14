@@ -6,6 +6,6 @@ import { EnvironmentConfig } from './types';
 export const environment: EnvironmentConfig = {
 	production: false,
 	api: {
-		tabs: 'https://vanya.school:8083',
+		tabs: 'http://vanya.school:8083',
 	},
 };
