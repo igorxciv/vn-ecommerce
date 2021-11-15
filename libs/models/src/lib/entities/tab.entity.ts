@@ -17,6 +17,12 @@ export class TabEntity {
 	@Column({ nullable: true })
 	image: string;
 
+	@Column({ update: false, default: new Date() })
+	createdAt: Date;
+
+	@Column({ default: new Date() })
+	updatedAt: Date;
+
 	// @Column('json', { nullable: true })
 	// flavors: string[];
 }

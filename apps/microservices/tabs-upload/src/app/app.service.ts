@@ -16,7 +16,7 @@ export class AppService {
 	}
 
 	async update(id: string, updateTabDto: UpdateTabDto) {
-		const tab = await this.tabRepository.preload({ id, ...updateTabDto });
+		const tab = await this.tabRepository.preload({ id, ...updateTabDto, updatedAt: new Date() });
 
 		if (!tab) {
 			throw new NotFoundException(`Tab ${id} not found`);
