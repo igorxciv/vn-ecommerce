@@ -1,0 +1,52 @@
+{
+	"root": "apps/microservices/registration",
+	"sourceRoot": "apps/microservices/registration/src",
+	"projectType": "application",
+	"targets": {
+		"build": {
+			"executor": "@nrwl/node:build",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/apps/microservices/registration",
+				"main": "apps/microservices/registration/src/main.ts",
+				"tsConfig": "apps/microservices/registration/tsconfig.app.json",
+				"assets": ["apps/microservices/registration/src/assets"]
+			},
+			"configurations": {
+				"production": {
+					"optimization": true,
+					"extractLicenses": true,
+					"inspect": false,
+					"fileReplacements": [
+						{
+							"replace": "apps/microservices/registration/src/environments/environment.ts",
+							"with": "apps/microservices/registration/src/environments/environment.prod.ts"
+						}
+					]
+				}
+			}
+		},
+		"serve": {
+			"executor": "@nrwl/node:execute",
+			"options": {
+				"buildTarget": "microservices-registration:build"
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["apps/microservices/registration/**/*.ts"]
+			}
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/apps/microservices/registration"],
+			"options": {
+				"jestConfig": "apps/microservices/registration/jest.config.js",
+				"passWithNoTests": true
+			}
+		}
+	},
+	"tags": []
+}

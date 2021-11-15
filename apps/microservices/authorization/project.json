@@ -1,0 +1,52 @@
+{
+	"root": "apps/microservices/authorization",
+	"sourceRoot": "apps/microservices/authorization/src",
+	"projectType": "application",
+	"targets": {
+		"build": {
+			"executor": "@nrwl/node:build",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/apps/microservices/authorization",
+				"main": "apps/microservices/authorization/src/main.ts",
+				"tsConfig": "apps/microservices/authorization/tsconfig.app.json",
+				"assets": ["apps/microservices/authorization/src/assets"]
+			},
+			"configurations": {
+				"production": {
+					"optimization": true,
+					"extractLicenses": true,
+					"inspect": false,
+					"fileReplacements": [
+						{
+							"replace": "apps/microservices/authorization/src/environments/environment.ts",
+							"with": "apps/microservices/authorization/src/environments/environment.prod.ts"
+						}
+					]
+				}
+			}
+		},
+		"serve": {
+			"executor": "@nrwl/node:execute",
+			"options": {
+				"buildTarget": "microservices-authorization:build"
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["apps/microservices/authorization/**/*.ts"]
+			}
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/apps/microservices/authorization"],
+			"options": {
+				"jestConfig": "apps/microservices/authorization/jest.config.js",
+				"passWithNoTests": true
+			}
+		}
+	},
+	"tags": []
+}

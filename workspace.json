@@ -3,6 +3,9 @@
 	"projects": {
 		"frontend": "apps/frontend",
 		"frontend-e2e": "apps/frontend-e2e",
+		"microservices-authorization": "apps/microservices/authorization",
+		"microservices-cart": "apps/microservices/cart",
+		"microservices-registration": "apps/microservices/registration",
 		"microservices-tabs": "apps/microservices/tabs",
 		"microservices-tabs-upload": "apps/microservices/tabs-upload",
 		"ui-kit": "libs/ui-kit"

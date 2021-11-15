@@ -1,0 +1,52 @@
+{
+	"root": "apps/microservices/cart",
+	"sourceRoot": "apps/microservices/cart/src",
+	"projectType": "application",
+	"targets": {
+		"build": {
+			"executor": "@nrwl/node:build",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/apps/microservices/cart",
+				"main": "apps/microservices/cart/src/main.ts",
+				"tsConfig": "apps/microservices/cart/tsconfig.app.json",
+				"assets": ["apps/microservices/cart/src/assets"]
+			},
+			"configurations": {
+				"production": {
+					"optimization": true,
+					"extractLicenses": true,
+					"inspect": false,
+					"fileReplacements": [
+						{
+							"replace": "apps/microservices/cart/src/environments/environment.ts",
+							"with": "apps/microservices/cart/src/environments/environment.prod.ts"
+						}
+					]
+				}
+			}
+		},
+		"serve": {
+			"executor": "@nrwl/node:execute",
+			"options": {
+				"buildTarget": "microservices-cart:build"
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["apps/microservices/cart/**/*.ts"]
+			}
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/apps/microservices/cart"],
+			"options": {
+				"jestConfig": "apps/microservices/cart/jest.config.js",
+				"passWithNoTests": true
+			}
+		}
+	},
+	"tags": []
+}
