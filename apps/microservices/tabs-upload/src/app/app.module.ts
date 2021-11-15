@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { TabEntity } from '@vn-ecommerce/models';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { Tab } from '../entities/tab.entity';
 
 @Module({
 	imports: [
@@ -17,7 +17,7 @@ import { Tab } from '../entities/tab.entity';
 			synchronize: true,
 			dropSchema: true,
 		}),
-		TypeOrmModule.forFeature([Tab]),
+		TypeOrmModule.forFeature([TabEntity]),
 	],
 	controllers: [AppController],
 	providers: [AppService],

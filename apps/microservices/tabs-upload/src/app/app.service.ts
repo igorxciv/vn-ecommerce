@@ -1,13 +1,13 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Tab } from '../entities/tab.entity';
+import { TabEntity } from '@vn-ecommerce/models';
 import { CreateTabDto } from '../dto/create-tab.dto';
 import { UpdateTabDto } from '../dto/update-tab.dto';
 
 @Injectable()
 export class AppService {
-	constructor(@InjectRepository(Tab) private readonly tabRepository: Repository<Tab>) {}
+	constructor(@InjectRepository(TabEntity) private readonly tabRepository: Repository<TabEntity>) {}
 
 	async create(createTabDto: CreateTabDto) {
 		const tab = this.tabRepository.create(createTabDto);
