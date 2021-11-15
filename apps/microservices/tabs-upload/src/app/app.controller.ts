@@ -14,8 +14,6 @@ export class AppController {
 
 	@Patch('tabs/:uuid')
 	updateTab(@Param('uuid') id: string, @Body() body: UpdateTabDto) {
-		console.log(id);
-
 		return this.appService.update(id, body);
 	}
 
