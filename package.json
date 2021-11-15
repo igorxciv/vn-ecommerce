@@ -9,7 +9,8 @@
     "show-deps": "nx dep-graph",
     "prepare": "husky install",
     "app": "nx run-many --target=serve --projects=frontend,tabs --parallel=true",
-    "start:microservice:tabs": "nx serve microservices-tabs"
+    "start:microservice:tabs": "nx serve microservices-tabs",
+    "start:microservice:tabs-upload": "nx serve microservices-tabs-upload"
   },
   "private": true,
   "dependencies": {
@@ -17,6 +18,7 @@
     "@nestjs/core": "8.1.2",
     "@nestjs/mapped-types": "1.0.0",
     "@nestjs/platform-express": "8.1.2",
+    "@nestjs/typeorm": "8.0.2",
     "@reduxjs/toolkit": "1.6.2",
     "axios": "0.24.0",
     "class-transformer": "0.4.0",
@@ -24,6 +26,7 @@
     "classnames": "2.3.1",
     "core-js": "3.19.1",
     "i18next": "21.4.1",
+    "pg": "8.7.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-i18next": "11.13.0",
@@ -33,7 +36,8 @@
     "reflect-metadata": "0.1.13",
     "regenerator-runtime": "0.13.7",
     "rxjs": "7.4.0",
-    "tslib": "2.3.1"
+    "tslib": "2.3.1",
+    "typeorm": "0.2.40"
   },
   "devDependencies": {
     "@commitlint/cli": "14.1.0",
