@@ -8,7 +8,7 @@
     "test": "nx test",
     "show-deps": "nx dep-graph",
     "prepare": "husky install",
-    "app": "nx run-many --target=serve --projects=frontend,tabs --parallel=true",
+    "app": "nx run-many --target=serve --projects=frontend,microservices-tabs,microservices-tabs-upload --parallel=true",
     "start:microservice:tabs": "nx serve microservices-tabs",
     "start:microservice:tabs-upload": "nx serve microservices-tabs-upload"
   },

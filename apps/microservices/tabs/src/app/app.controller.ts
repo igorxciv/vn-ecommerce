@@ -7,11 +7,11 @@ export class AppController {
 
 	@Get('tabs')
 	getTabs() {
-		return this.appService.getTabs();
+		return this.appService.findAll();
 	}
 
 	@Get('tabs/:id')
 	getTabById(@Param('id') id: string) {
-		return this.appService.getTabById(id);
+		return this.appService.findOne(id);
 	}
 }

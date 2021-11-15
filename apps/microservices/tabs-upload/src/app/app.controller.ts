@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Param, ParseUUIDPipe, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Param, Patch, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 import { CreateTabDto } from '../dto/create-tab.dto';
 import { UpdateTabDto } from '../dto/update-tab.dto';
@@ -13,12 +13,14 @@ export class AppController {
 	}
 
 	@Patch('tabs/:uuid')
-	updateTab(@Param('id', ParseUUIDPipe) id: string, @Body() body: UpdateTabDto) {
+	updateTab(@Param('uuid') id: string, @Body() body: UpdateTabDto) {
+		console.log(id);
+
 		return this.appService.update(id, body);
 	}
 
 	@Delete('tabs/:uuid')
-	deleteTab(@Param('uuid', ParseUUIDPipe) id: string) {
+	deleteTab(@Param('uuid') id: string) {
 		return this.appService.remove(id);
 	}
 }

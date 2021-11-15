@@ -13,6 +13,7 @@ async function bootstrap() {
 
 	app.setGlobalPrefix(globalPrefix);
 	app.useGlobalPipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }));
+	app.enableCors();
 	const port = process.env.PORT || 8082;
 
 	await app.listen(port, () => {
