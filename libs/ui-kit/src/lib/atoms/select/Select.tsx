@@ -1,7 +1,7 @@
 import { PropsWithChildren, useState, useRef, ReactNode } from 'react';
 import classNames from 'classnames/bind';
 import { Transition } from 'react-transition-group';
-import { SelectContext } from './select-context';
+import { SelectProvider } from './select-context';
 import styles from './Select.module.scss';
 import { TransitionDuration } from '../../design/constants';
 import { useClickOutside } from '../../utils/interaction';
@@ -48,7 +48,7 @@ export const Select = (props: PropsWithChildren<Props>) => {
 	);
 
 	return (
-		<SelectContext.Provider value={{ value, onChange: handleSelect }}>
+		<SelectProvider value={value} onChange={handleSelect}>
 			<div ref={selectRef}>
 				<button className={buttonClasses} onClick={handleToggle}>
 					<span>{label}</span>
@@ -56,6 +56,6 @@ export const Select = (props: PropsWithChildren<Props>) => {
 				</button>
 				{items}
 			</div>
-		</SelectContext.Provider>
+		</SelectProvider>
 	);
 };

@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
-import { PropsWithChildren, useContext } from 'react';
+import { PropsWithChildren } from 'react';
 import styles from './Option.module.scss';
-import { SelectContext } from '../select-context';
+import { useSelect } from '../select-context';
 
 const cx = classNames.bind(styles);
 
@@ -12,13 +12,13 @@ type Props = {
 export const Option = (props: PropsWithChildren<Props>) => {
 	const { value, children } = props;
 
-	const ctx = useContext(SelectContext);
+	const { selectedValue, onChange } = useSelect();
 
 	const handleClick = () => {
-		ctx.onChange(value);
+		onChange(value);
 	};
 
-	const optionClasses = cx('option', { 'option--selected': ctx.value === value });
+	const optionClasses = cx('option', { 'option--selected': selectedValue === value });
 	const buttonClasses = cx('option__button');
 
 	return (
