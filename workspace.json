@@ -4,6 +4,7 @@
 		"frontend": "apps/frontend",
 		"frontend-e2e": "apps/frontend-e2e",
 		"microservices-tabs": "apps/microservices/tabs",
+		"microservices-tabs-upload": "apps/microservices/tabs-upload",
 		"ui-kit": "libs/ui-kit"
 	}
 }

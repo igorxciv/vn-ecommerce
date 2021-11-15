@@ -1,8 +1,8 @@
 {
 	"compileOnSave": false,
 	"compilerOptions": {
-    "resolveJsonModule": true,
-    "rootDir": ".",
+		"resolveJsonModule": true,
+		"rootDir": ".",
 		"sourceMap": true,
 		"declaration": false,
 		"moduleResolution": "node",
@@ -16,8 +16,8 @@
 		"skipDefaultLibCheck": true,
 		"baseUrl": ".",
 		"paths": {
-			"@vn-ecommerce/ui-kit/*": ["libs/ui-kit/src/lib/*"],
-      "@frontend/*": ["apps/frontend/src/*"]
+			"@frontend/*": ["apps/frontend/src/*"],
+			"@vn-ecommerce/ui-kit/*": ["libs/ui-kit/src/lib/*"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]

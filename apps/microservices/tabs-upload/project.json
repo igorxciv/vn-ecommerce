@@ -1,0 +1,52 @@
+{
+	"root": "apps/microservices/tabs-upload",
+	"sourceRoot": "apps/microservices/tabs-upload/src",
+	"projectType": "application",
+	"targets": {
+		"build": {
+			"executor": "@nrwl/node:build",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/apps/microservices/tabs-upload",
+				"main": "apps/microservices/tabs-upload/src/main.ts",
+				"tsConfig": "apps/microservices/tabs-upload/tsconfig.app.json",
+				"assets": ["apps/microservices/tabs-upload/src/assets"]
+			},
+			"configurations": {
+				"production": {
+					"optimization": true,
+					"extractLicenses": true,
+					"inspect": false,
+					"fileReplacements": [
+						{
+							"replace": "apps/microservices/tabs-upload/src/environments/environment.ts",
+							"with": "apps/microservices/tabs-upload/src/environments/environment.prod.ts"
+						}
+					]
+				}
+			}
+		},
+		"serve": {
+			"executor": "@nrwl/node:execute",
+			"options": {
+				"buildTarget": "microservices-tabs-upload:build"
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["apps/microservices/tabs-upload/**/*.ts"]
+			}
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/apps/microservices/tabs-upload"],
+			"options": {
+				"jestConfig": "apps/microservices/tabs-upload/jest.config.js",
+				"passWithNoTests": true
+			}
+		}
+	},
+	"tags": []
+}
