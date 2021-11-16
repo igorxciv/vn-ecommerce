@@ -5,6 +5,7 @@
 @import './components/navigation-menu';
 @import './components/header';
 @import './components/select';
+@import './components/image';
 
 :export {
 	/* components */
@@ -20,4 +21,11 @@
 	screen-size__medium: $screen-size__medium;
 	screen-size__small: $screen-size__small;
 	screen-size__xlarge: $screen-size__xlarge;
+
+	/* product */
+
+	product-image__large: $product-image__large;
+	product-image__medium: $product-image__medium;
+	product-image__ratio: $product-image__ratio;
+	product-image__small: $product-image__small;
 }

@@ -13,3 +13,9 @@ export const TransitionDuration = {
 	HeaderCollapse: parseInt(StyleVariables['header__collapse-transition-duration']),
 	SelectAppear: parseInt(StyleVariables['select__appear-transition-duration']),
 };
+
+export enum ProductBreakpoints {
+	Small = parseInt(StyleVariables['product-image__small']),
+	Medium = parseInt(StyleVariables['product-image__medium']),
+	Large = parseInt(StyleVariables['product-image__large']),
+}

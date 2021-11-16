@@ -6,7 +6,7 @@ export class TabEntity {
 	id: string;
 
 	@Column()
-	artist: string;
+	artist?: string;
 
 	@Column()
 	track: string;
@@ -15,14 +15,11 @@ export class TabEntity {
 	complexity: number;
 
 	@Column({ nullable: true })
-	image: string;
+	image?: string;
 
 	@Column({ update: false, default: new Date() })
 	createdAt: Date;
 
 	@Column({ default: new Date() })
 	updatedAt: Date;
-
-	// @Column('json', { nullable: true })
-	// flavors: string[];
 }

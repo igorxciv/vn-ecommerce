@@ -5,11 +5,7 @@
 	&__title {
 		@extend %section-title;
 
-		margin-top: rem(25);
+		margin: rem(25) 0 rem(32);
 		text-align: center;
-	}
-
-	&__error {
-		margin-top: rem(20);
 	}
 }

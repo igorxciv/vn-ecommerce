@@ -6,12 +6,12 @@ export class AppController {
 	constructor(private readonly appService: AppService) {}
 
 	@Get('tabs')
-	getTabs() {
-		return this.appService.findAll();
+	async getTabs() {
+		return await this.appService.findAll();
 	}
 
 	@Get('tabs/:id')
-	getTabById(@Param('id') id: string) {
-		return this.appService.findOne(id);
+	async getTabById(@Param('id') id: string) {
+		return await this.appService.findOne(id);
 	}
 }

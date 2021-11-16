@@ -1,0 +1,23 @@
+@import 'design/settings/colors';
+
+.product-tile {
+	&__slide {
+		background-color: $color-_basic-300;
+		padding-top: 113.63%; // ratio 22/25: 25/22*100 -> %
+		position: relative;
+	}
+
+	&__quickshop {
+		display: none;
+		position: absolute;
+	}
+
+	&__image {
+		border: none;
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+}

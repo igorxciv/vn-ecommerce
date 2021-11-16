@@ -1,18 +1,19 @@
 import axios from 'axios';
 import { environment } from '@frontend/environments/environment';
+import { Tab } from './types';
 
 const apiClient = axios.create({
 	baseURL: `${environment.api.tabs}/api/v1`,
 });
 
-export async function fetchTabs(): Promise<any[]> {
-	const { data } = await apiClient.get<any[]>('/tabs');
+export async function fetchTabs(): Promise<Tab[]> {
+	const { data } = await apiClient.get<Tab[]>('/tabs');
 
 	return data;
 }
 
-export async function fetchTabById(id: string): Promise<any> {
-	const { data } = await apiClient.get<any>(`/tabs/${id}`);
+export async function fetchTabById(id: string): Promise<Tab> {
+	const { data } = await apiClient.get<Tab>(`/tabs/${id}`);
 
 	return data;
 }
