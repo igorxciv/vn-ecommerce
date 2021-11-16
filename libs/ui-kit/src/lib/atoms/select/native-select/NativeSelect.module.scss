@@ -1,0 +1,8 @@
+@import 'design/tools/accessibility';
+
+.native-select {
+	@extend %visually-hidden;
+
+	position: absolute;
+	width: 100%;
+}

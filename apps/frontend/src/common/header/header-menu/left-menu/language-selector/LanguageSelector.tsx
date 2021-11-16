@@ -11,10 +11,15 @@ const cx = classNames.bind(styles);
 
 type Props = HTMLAttributes<HTMLDivElement>;
 
-export const LanguageSelector: FC<Props> = (props: Props) => {
+export const LanguageSelector: FC<Props> = () => {
 	const locale = useAppSelector(selectLocale);
 	const languages = useAppSelector(selectLanguagesMap);
 	const dispatch = useAppDispatch();
+
+	const nativeValues = Object.entries(languages).map(([locale, language]) => ({
+		label: language,
+		value: locale,
+	}));
 
 	const handleSelectLanguage = (locale: string) => {
 		dispatch(setLocaleAsync(locale));
@@ -45,7 +50,7 @@ export const LanguageSelector: FC<Props> = (props: Props) => {
 	);
 
 	return (
-		<Select onChange={handleSelectLanguage} label={label} value={locale}>
+		<Select onChange={handleSelectLanguage} label={label} value={locale} nativeValues={nativeValues}>
 			{items}
 		</Select>
 	);
