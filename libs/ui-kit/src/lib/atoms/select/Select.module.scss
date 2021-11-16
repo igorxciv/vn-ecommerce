@@ -14,6 +14,7 @@
 		cursor: pointer;
 		display: flex;
 		font-family: $font__secondary;
+		font-size: var(--select-font-size, rem(14));
 		font-weight: $font-weight__medium;
 		gap: rem(5);
 		padding: rem(5) rem(10);

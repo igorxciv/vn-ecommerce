@@ -19,7 +19,6 @@ export const Sidebar = forwardRef((props: PropsWithoutRef<Props>, ref: Forwarded
 	const sidebarClasses = cx('sidebar');
 	const overlayClasses = cx('sidebar__overlay', { 'sidebar__overlay--closing': closing });
 	const layerClasses = cx('sidebar__layer', className);
-	const separatorClasses = cx('sidebar__separator');
 
 	const history = useHistory();
 
@@ -35,7 +34,6 @@ export const Sidebar = forwardRef((props: PropsWithoutRef<Props>, ref: Forwarded
 			<div className={layerClasses}>
 				<SidebarHead />
 				<SideBarItems />
-				<hr className={separatorClasses} />
 			</div>
 		</div>
 	);

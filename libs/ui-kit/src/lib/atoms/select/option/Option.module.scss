@@ -25,6 +25,7 @@
 		cursor: pointer;
 		display: flex;
 		font-family: $font__secondary;
+		font-size: var(--select-font-size, rem(14));
 		font-weight: $font-weight__medium;
 		padding: rem(10) rem(25);
 		z-index: 1;

@@ -35,12 +35,4 @@
 		top: 0;
 		width: 85vw;
 	}
-
-	&__separator {
-		background-color: $color__basic-200;
-		border: none;
-		height: rem(1);
-		margin: rem(20) auto;
-		width: calc(100% - #{rem(40)});
-	}
 }

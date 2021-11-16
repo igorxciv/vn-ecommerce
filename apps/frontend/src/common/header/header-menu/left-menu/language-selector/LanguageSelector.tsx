@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, HTMLAttributes } from 'react';
 import classNames from 'classnames/bind';
 import { useAppDispatch, useAppSelector } from '@frontend/store/hooks';
 import { selectLanguagesMap, selectLocale } from '@frontend/store/selectors/i18n';
@@ -9,7 +9,9 @@ import styles from './LanguageSelector.module.scss';
 
 const cx = classNames.bind(styles);
 
-export const LanguageSelector: FC = () => {
+type Props = HTMLAttributes<HTMLDivElement>;
+
+export const LanguageSelector: FC<Props> = (props: Props) => {
 	const locale = useAppSelector(selectLocale);
 	const languages = useAppSelector(selectLanguagesMap);
 	const dispatch = useAppDispatch();
