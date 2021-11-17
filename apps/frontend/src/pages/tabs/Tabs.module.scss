@@ -2,10 +2,12 @@
 @import 'design/tools/typography';
 
 .tabs {
+	padding-top: rem(100);
+
 	&__title {
 		@extend %section-title;
 
-		margin: rem(25) 0 rem(32);
+		margin-bottom: rem(32);
 		text-align: center;
 	}
 }
