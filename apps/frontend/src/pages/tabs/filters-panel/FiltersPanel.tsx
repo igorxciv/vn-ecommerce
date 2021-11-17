@@ -1,13 +1,15 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { DropdownButton } from '@vn-ecommerce/ui-kit/atoms/dropdown-button';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames/bind';
 import { useScrollDirectionChange, useTopState } from '@frontend/libs/scroll';
+import { SortingPopup } from '@frontend/pages/tabs/filters-panel/sorting-popup';
 import styles from './FiltersPanel.module.scss';
 
 const cx = classNames.bind(styles);
 
 export const FiltersPanel: FC = () => {
+	const [sortingOpened, setSortingOpened] = useState(false);
 	const { t } = useTranslation('common');
 	const isTop = useTopState();
 	const direction = useScrollDirectionChange();
@@ -18,11 +20,13 @@ export const FiltersPanel: FC = () => {
 	};
 
 	const handleSortingClick = () => {
-		console.log('sorting click');
+		setSortingOpened(!sortingOpened);
 	};
 
 	const panelClasses = cx('filters-panel', { 'filters-panel--top': isTop, 'filters-panel--compact': compact });
 	const innerClasses = cx('filters-panel__inner');
+
+	const sortingPopup = sortingOpened && <SortingPopup onClose={handleSortingClick} />;
 
 	return (
 		<div className={panelClasses}>
@@ -30,6 +34,7 @@ export const FiltersPanel: FC = () => {
 				<DropdownButton onClick={handleFilterClick}>{t('filters.filter')}</DropdownButton>
 				<DropdownButton onClick={handleSortingClick}>{t('filters.sorting')}</DropdownButton>
 			</div>
+			{sortingPopup}
 		</div>
 	);
 };
