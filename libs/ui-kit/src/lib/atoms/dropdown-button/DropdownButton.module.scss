@@ -1,4 +1,6 @@
 @import 'design/settings/colors';
+@import 'design/settings/fonts';
+@import 'design/settings/font-weights';
 @import 'design/tools/sizing';
 @import 'design/tools/transitions';
 
@@ -8,34 +10,15 @@
 	border: none;
 	cursor: pointer;
 	display: flex;
+	font-family: $font__secondary;
 	font-size: rem(14);
 	padding: rem(5) rem(10);
 	position: relative;
 
-	&::after {
-		background-color: $color__basic-500;
-		bottom: 0;
-		content: '';
-		height: rem(1);
-		left: 0;
-		position: absolute;
-		transform: scaleX(0);
-		width: 100%;
-
-		@include property-animation('transform');
-	}
-
-	&--expanded {
-		&::after {
-			transform: scaleY(1);
-		}
-	}
-
 	&__icon {
-		height: rem(14);
-		margin-left: rem(5);
+		height: rem(20);
 		transform: rotate(0);
-		width: rem(14);
+		width: rem(20);
 
 		@include property-animation('transform', 200ms);
 

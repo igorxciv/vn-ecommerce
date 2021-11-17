@@ -1,0 +1,9 @@
+@import 'design/settings/colors';
+@import 'design/tools/sizing';
+
+.filters-panel {
+	background-color: $color__basic-100;
+	display: flex;
+	justify-content: space-between;
+	padding: rem(18) 0;
+}

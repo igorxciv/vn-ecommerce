@@ -5,6 +5,7 @@ import { Error } from '@vn-ecommerce/ui-kit/atoms/error';
 import { ProductsList } from '@vn-ecommerce/ui-kit/organisms/products-list';
 import { castTabToProduct } from '@frontend/utils/product';
 import { Product } from '@vn-ecommerce/ui-kit/types/product';
+import { FiltersPanel } from '@frontend/pages/tabs/filters-panel/FiltersPanel';
 import { useTabs } from './hooks';
 import styles from './Tabs.module.scss';
 
@@ -32,6 +33,7 @@ export const Tabs: FC = () => {
 
 	return (
 		<section className={tabsClasses}>
+			<FiltersPanel />
 			<h1 className={titleClasses}>{t('tabs')}</h1>
 			{tabsList}
 		</section>

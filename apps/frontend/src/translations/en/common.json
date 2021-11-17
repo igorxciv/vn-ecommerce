@@ -1,4 +1,10 @@
 {
+	"filters": {
+		"artist": "Artist",
+		"complexity": "Complexity",
+		"filter": "Filter",
+		"sorting": "Sort"
+	},
 	"logo1": "Vanya",
 	"logo2": "Teach!",
 	"page_title": "Online School by Ivan Zaharenka"
