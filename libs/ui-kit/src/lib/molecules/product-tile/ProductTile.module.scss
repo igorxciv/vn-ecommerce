@@ -1,6 +1,20 @@
 @import 'design/settings/colors';
+@import 'design/tools/media';
+@import 'design/tools/sizing';
 
 .product-tile {
+	row-gap: rem(15);
+
+	&__link {
+		display: block;
+		margin-bottom: rem(10);
+		text-decoration: none;
+
+		@include large-screen {
+			margin-bottom: rem(15);
+		}
+	}
+
 	&__slide {
 		background-color: $color-_basic-300;
 		padding-top: 113.63%; // ratio 22/25: 25/22*100 -> %
@@ -19,5 +33,16 @@
 		position: absolute;
 		top: 0;
 		width: 100%;
+	}
+
+	&__name {
+		color: $color__basic-900;
+		font-size: rem(12);
+		line-height: 1.7;
+	}
+
+	&__price {
+		color: $color__basic-400;
+		font-size: rem(12);
 	}
 }

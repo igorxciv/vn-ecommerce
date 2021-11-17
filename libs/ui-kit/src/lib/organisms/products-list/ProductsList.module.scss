@@ -1,7 +1,13 @@
 @import 'design/tools/sizing';
+@import 'design/tools/media';
 
 .products-list {
 	display: grid;
 	gap: rem(32) rem(20);
 	grid-template-columns: 1fr 1fr;
+
+	@include large-screen {
+		gap: rem(45) rem(30);
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
 }

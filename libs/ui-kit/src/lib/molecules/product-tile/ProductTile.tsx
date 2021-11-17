@@ -20,9 +20,12 @@ export const ProductTile: FC<Props> = (props: Props) => {
 	const { name, price, imageName } = product;
 
 	const tileClasses = cx('product-tile');
+	const linkClasses = cx('product-tile__link');
 	const slideClasses = cx('product-tile__slide');
 	const quickshopClasses = cx('product-tile__quickshop');
 	const imageClasses = cx('product-tile__image');
+	const nameClasses = cx('product-tile__name');
+	const priceClasses = cx('product-tile__price');
 
 	const handleQuickshopClick = () => {
 		onAddToCart(product);
@@ -30,7 +33,7 @@ export const ProductTile: FC<Props> = (props: Props) => {
 
 	return (
 		<div className={tileClasses}>
-			<Link to={url}>
+			<Link to={url} className={linkClasses}>
 				<div className={slideClasses}>
 					<Image
 						name={imageName}
@@ -41,9 +44,9 @@ export const ProductTile: FC<Props> = (props: Props) => {
 						{quickshopLabel}
 					</button>
 				</div>
+				<div className={nameClasses}>{name}</div>
+				<div className={priceClasses}>${price}</div>
 			</Link>
-			<div>{name}</div>
-			<div>{price}</div>
 		</div>
 	);
 };
