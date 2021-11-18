@@ -1,0 +1,17 @@
+@import 'design/tools/sizing';
+
+.sorting-popup {
+	display: flex;
+	flex-direction: column;
+	gap: rem(30);
+	padding: rem(30) rem(20);
+
+	&__items {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__radio {
+		padding: rem(15) rem(10);
+	}
+}

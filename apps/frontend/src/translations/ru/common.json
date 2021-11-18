@@ -1,8 +1,15 @@
 {
+	"buttons": {
+		"apply": "Применить"
+	},
 	"filters": {
 		"artist": "Исполнитель",
+		"best_selling": "Самые продаваемые",
 		"complexity": "Сложность",
 		"filter": "Фильтр",
+		"highest_price": "От Дорогих",
+		"lowest_price": "От Дешевых",
+		"newest": "Новые",
 		"sorting": "Сортировать"
 	},
 	"logo1": "Ваня",

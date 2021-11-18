@@ -1,22 +1,28 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Tab } from '@frontend/api/tabs/types';
+import { Sorting } from '@frontend/types/filters';
 import { fetchTabsAsync } from './tabs-thunks';
 
 type TabsState = {
 	loading: boolean;
 	error: string | null;
 	tabs: Tab[];
+	sorting: Sorting;
 };
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-const tabsSlice = createSlice<TabsState, {}, 'tabs'>({
+const tabsSlice = createSlice({
 	name: 'tabs',
 	initialState: {
 		tabs: [],
 		loading: false,
 		error: null,
+		sorting: 'newest',
+	} as TabsState,
+	reducers: {
+		setSorting: (state: TabsState, action: PayloadAction<Sorting>) => {
+			state.sorting = action.payload;
+		},
 	},
-	reducers: {},
 	extraReducers: (builder) => {
 		builder
 			.addCase(fetchTabsAsync.pending, (state) => {
@@ -35,4 +41,4 @@ const tabsSlice = createSlice<TabsState, {}, 'tabs'>({
 	},
 });
 
-export const { name: tabsReducerName, reducer: tabsReducer } = tabsSlice;
+export const { name: tabsReducerName, reducer: tabsReducer, actions: tabsActions } = tabsSlice;

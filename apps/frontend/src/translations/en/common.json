@@ -1,8 +1,15 @@
 {
+	"buttons": {
+		"apply": "Apply"
+	},
 	"filters": {
 		"artist": "Artist",
+		"best_selling": "Best Selling",
 		"complexity": "Complexity",
 		"filter": "Filter",
+		"highest_price": "Highest Price",
+		"lowest_price": "Lowest Price",
+		"newest": "Newest",
 		"sorting": "Sort"
 	},
 	"logo1": "Vanya",

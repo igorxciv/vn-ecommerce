@@ -18,6 +18,7 @@ export const FullscreenPopup: FC<PropsWithChildren<Props>> = (props: PropsWithCh
 	const titleClasses = cx('popup__title');
 	const closeClasses = cx('popup__close');
 	const closeIconClasses = cx('popup__close-icon');
+	const bodyClasses = cx('popup__body');
 
 	return createPortal(
 		<div className={popupClasses}>
@@ -27,7 +28,7 @@ export const FullscreenPopup: FC<PropsWithChildren<Props>> = (props: PropsWithCh
 					<CrossIcon className={closeIconClasses} />
 				</button>
 			</div>
-			<div>{children}</div>
+			<div className={bodyClasses}>{children}</div>
 		</div>,
 		document.body,
 	);

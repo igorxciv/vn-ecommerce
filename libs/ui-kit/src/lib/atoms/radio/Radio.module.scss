@@ -1,0 +1,42 @@
+@import 'design/settings/colors';
+@import 'design/settings/fonts';
+@import 'design/tools/accessibility';
+@import 'design/tools/sizing';
+
+.radio {
+	align-items: center;
+	cursor: pointer;
+
+	&__input {
+		@extend %visually-hidden;
+
+		&:checked ~ .radio__outer > .radio__inner {
+			display: block;
+		}
+	}
+
+	&__outer {
+		align-items: center;
+		border: rem(1) solid $color__basic-400;
+		border-radius: 50%;
+		display: flex;
+		height: rem(15);
+		justify-content: center;
+		position: absolute;
+		width: rem(15);
+	}
+
+	&__inner {
+		background: $color__basic-900;
+		border-radius: 50%;
+		display: none;
+		height: rem(7);
+		width: rem(7);
+	}
+
+	&__label {
+		font-family: $font__secondary;
+		font-size: rem(14);
+		padding-left: rem(30);
+	}
+}

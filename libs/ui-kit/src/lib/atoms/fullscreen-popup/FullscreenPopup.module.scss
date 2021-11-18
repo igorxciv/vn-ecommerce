@@ -4,8 +4,9 @@
 
 .popup {
 	background-color: $color-_basic-100;
-	height: 100%;
+	border-bottom: rem(1) solid $color-_basic-200;
 	left: 0;
+	max-height: 100%;
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -37,5 +38,9 @@
 	&__close-icon {
 		height: rem(20);
 		width: rem(20);
+	}
+
+	&__body {
+		background-color: $color__basic-100;
 	}
 }
