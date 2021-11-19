@@ -2,7 +2,6 @@ import { FC, useState } from 'react';
 import { DropdownButton } from '@vn-ecommerce/ui-kit/atoms/dropdown-button';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames/bind';
-import { useScrollDirectionChange, useTopState } from '@frontend/libs/scroll';
 import { useAppSelector } from '@frontend/store/hooks';
 import { selectTabsSorting } from '@frontend/store/selectors/tabs';
 import { SortingPopup } from './sorting-popup';
@@ -15,10 +14,7 @@ export const FiltersPanel: FC = () => {
 	const [sortingOpened, setSortingOpened] = useState(false);
 	const [filtersOpened, setFiltersOpened] = useState(false);
 	const { t } = useTranslation('common');
-	const isTop = useTopState();
-	const direction = useScrollDirectionChange();
 	const sorting = useAppSelector(selectTabsSorting);
-	const compact = direction === 'down';
 
 	const handleFilterClick = () => {
 		setFiltersOpened(!filtersOpened);
@@ -30,7 +26,7 @@ export const FiltersPanel: FC = () => {
 
 	const sortingLabel = sorting ? t(`filters.${sorting}`) : t('filters.sorting');
 
-	const panelClasses = cx('filters-panel', { 'filters-panel--top': isTop, 'filters-panel--compact': compact });
+	const panelClasses = cx('filters-panel');
 	const innerClasses = cx('filters-panel__inner');
 
 	const filtersPopup = filtersOpened && <FiltersPopup onClose={handleFilterClick} />;

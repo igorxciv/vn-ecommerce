@@ -7,7 +7,8 @@ type TabsState = {
 	loading: boolean;
 	error: string | null;
 	tabs: Tab[];
-	sorting: Sorting;
+	sortingTypes: Sorting[];
+	selectedSorting: Sorting | null;
 };
 
 const tabsSlice = createSlice({
@@ -16,11 +17,12 @@ const tabsSlice = createSlice({
 		tabs: [],
 		loading: false,
 		error: null,
-		sorting: 'newest',
+		sortingTypes: ['newest', 'best_selling', 'highest_price', 'lowest_price'],
+		selectedSorting: null,
 	} as TabsState,
 	reducers: {
 		setSorting: (state: TabsState, action: PayloadAction<Sorting>) => {
-			state.sorting = action.payload;
+			state.selectedSorting = action.payload;
 		},
 	},
 	extraReducers: (builder) => {

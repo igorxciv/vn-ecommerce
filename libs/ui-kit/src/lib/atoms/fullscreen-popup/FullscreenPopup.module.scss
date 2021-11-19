@@ -1,16 +1,32 @@
+@use 'sass:color';
+
 @import 'design/settings/font-weights';
 @import 'design/settings/colors';
 @import 'design/tools/sizing';
 
 .popup {
-	background-color: $color-_basic-100;
-	border-bottom: rem(1) solid $color-_basic-200;
+	height: 100%;
 	left: 0;
-	max-height: 100%;
 	position: fixed;
 	top: 0;
 	width: 100%;
 	z-index: 1;
+
+	&__overlay {
+		background-color: color.adjust($color__basic-900, $alpha: -0.85);
+		height: 100%;
+		width: 100%;
+	}
+
+	&__body {
+		background-color: $color-_basic-100;
+		border-bottom: rem(1) solid $color-_basic-200;
+		left: 0;
+		max-height: 100%;
+		position: fixed;
+		top: 0;
+		width: 100%;
+	}
 
 	&__head {
 		border-bottom: rem(1) solid $color__basic-200;
@@ -40,7 +56,7 @@
 		width: rem(20);
 	}
 
-	&__body {
+	&__content {
 		background-color: $color__basic-100;
 	}
 }

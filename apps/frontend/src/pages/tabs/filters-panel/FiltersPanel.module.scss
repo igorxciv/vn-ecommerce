@@ -4,40 +4,9 @@
 @import 'design/tools/transitions';
 
 .filters-panel {
-	background-color: $color__basic-100;
-	border-bottom: rem(1) solid $color__basic-200;
-	left: 0;
-	padding-bottom: rem(15);
-	padding-top: rem(15);
-	position: fixed;
-	top: rem(74);
-	width: 100%;
-	z-index: 1;
-
-	@include property-animation('top');
-
-	@include large-screen {
-		top: rem(121);
-	}
-
-	&--top {
-		border-bottom: none;
-		top: rem(100);
-
-		@include large-screen {
-			top: rem(150);
-		}
-	}
-
-	&--compact {
-		@include large-screen {
-			top: rem(66);
-		}
-	}
+	padding: rem(15) 0;
 
 	&__inner {
-		@extend %page-container;
-
 		display: flex;
 		justify-content: space-between;
 		margin: 0 auto;

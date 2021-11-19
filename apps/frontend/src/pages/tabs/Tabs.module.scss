@@ -2,8 +2,6 @@
 @import 'design/tools/typography';
 
 .tabs {
-	padding-top: rem(100);
-
 	&__title {
 		@extend %section-title;
 
