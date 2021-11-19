@@ -27,3 +27,23 @@
 		opacity: 0%;
 	}
 }
+
+@keyframes visible {
+	0% {
+		visibility: hidden;
+	}
+
+	100% {
+		visibility: visible;
+	}
+}
+
+@keyframes hidden {
+	0% {
+		visibility: visible;
+	}
+
+	100% {
+		visibility: hidden;
+	}
+}
