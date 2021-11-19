@@ -1,0 +1,33 @@
+@import 'design/settings/colors';
+@import 'design/tools/sizing';
+@import 'design/tools/accessibility';
+
+.checkbox {
+	display: block;
+	line-height: 1.2;
+	padding-left: rem(22);
+
+	&__input {
+		@extend %visually-hidden;
+
+		&:checked ~ .checkbox__box > .checkbox__mark {
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='currentColor' d='M18.71 7.21a1 1 0 0 0-1.42 0l-7.45 7.46-3.13-3.14A1 1 0 1 0 5.29 13l3.84 3.84a1 1 0 0 0 1.42 0l8.16-8.16a1 1 0 0 0 0-1.47Z'/%3E%3C/svg%3E");
+		}
+	}
+
+	&__box {
+		align-items: center;
+		border: rem(1) solid $color__basic-400;
+		display: flex;
+		height: rem(20);
+		justify-content: center;
+		margin-left: rem(-22);
+		position: absolute;
+		width: rem(20);
+	}
+
+	&__mark {
+		height: rem(18);
+		width: rem(18);
+	}
+}

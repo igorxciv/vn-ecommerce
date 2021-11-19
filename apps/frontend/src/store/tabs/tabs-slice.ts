@@ -9,6 +9,12 @@ type TabsState = {
 	tabs: Tab[];
 	sortingTypes: Sorting[];
 	selectedSorting: Sorting | null;
+	filters: {
+		artist: string[];
+	};
+	selectedFilters: {
+		artist: string[];
+	};
 };
 
 const tabsSlice = createSlice({
@@ -19,10 +25,19 @@ const tabsSlice = createSlice({
 		error: null,
 		sortingTypes: ['newest', 'best_selling', 'highest_price', 'lowest_price'],
 		selectedSorting: null,
+		filters: {
+			artist: ['Arslan', 'Ivan Zaharenka', 'Linkin Park', 'One Republic', 'Агутин'],
+		},
+		selectedFilters: {
+			artist: [],
+		},
 	} as TabsState,
 	reducers: {
 		setSorting: (state: TabsState, action: PayloadAction<Sorting>) => {
 			state.selectedSorting = action.payload;
+		},
+		setFilter: (state: TabsState, action: PayloadAction<string>) => {
+			state.selectedFilters.artist.push(action.payload);
 		},
 	},
 	extraReducers: (builder) => {
