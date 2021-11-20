@@ -6,4 +6,4 @@ export const selectTabsSortingTypes = (state: RootState) => state.tabs.sortingTy
 export const selectTabsSorting = (state: RootState) => state.tabs.selectedSorting;
 export const selectTabsArtists = (state: RootState) => state.tabs.filters.artist;
 export const selectTabsFilterSelectedArtists = (state: RootState) => state.tabs.selectedFilters.artist;
-export const selectSelectedFiltersAmount = (state: RootState) => Object.values(state.tabs.selectedFilters.artist).length;
+export const selectSelectedArtistsFiltersAmount = (state: RootState) => Object.values(state.tabs.selectedFilters.artist).length;
