@@ -29,6 +29,10 @@ export const FiltersPopup: FC<Props> = (props: Props) => {
 		onClose();
 	};
 
+	const handleClear = () => {
+		setSelectedArtists({});
+	};
+
 	const handleFilterSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setSelectedArtists({
 			...selectedArtists,
@@ -42,16 +46,19 @@ export const FiltersPopup: FC<Props> = (props: Props) => {
 		</Checkbox>
 	));
 
-	const buttonClasses = cx('filters-popup__apply');
 	const artistsClasses = cx('filters-popup__artists');
+	const buttonsClasses = cx('filters-popup__buttons');
 
 	return (
 		<FullscreenPopup title={t('filters.filter')} onClose={onClose}>
 			<Accordion label={t('filters.artist')}>
 				<div className={artistsClasses}>{artistsFilters}</div>
 			</Accordion>
-			<div className={buttonClasses}>
+			<div className={buttonsClasses}>
 				<Button onClick={handleApply}>{t('buttons.apply')}</Button>
+				<Button type="transparent" onClick={handleClear}>
+					{t('buttons.clear_all')}
+				</Button>
 			</div>
 		</FullscreenPopup>
 	);

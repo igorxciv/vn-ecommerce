@@ -1,6 +1,7 @@
 {
 	"buttons": {
-		"apply": "Применить"
+		"apply": "Применить",
+		"clear_all": "Очистить"
 	},
 	"filters": {
 		"artist": "Исполнитель",

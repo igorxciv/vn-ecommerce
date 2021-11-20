@@ -1,6 +1,7 @@
 {
 	"buttons": {
-		"apply": "Apply"
+		"apply": "Apply",
+		"clear_all": "Clear All"
 	},
 	"filters": {
 		"artist": "Artist",

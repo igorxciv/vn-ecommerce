@@ -16,9 +16,20 @@
 	text-transform: uppercase;
 	width: 100%;
 
-	@include property-animation('background-color');
+	@include property-animation(('background-color', 'border-color'));
 
 	&:hover {
 		background-color: color.adjust($color__basic-900, $alpha: -0.3);
+	}
+
+	&--transparent {
+		background-color: $color__basic-100;
+		border: rem(1) solid $color__basic-900;
+		color: $color__basic-900;
+
+		&:hover {
+			background-color: $color__basic-100;
+			border-color: color.adjust($color__basic-900, $alpha: -0.8);
+		}
 	}
 }
