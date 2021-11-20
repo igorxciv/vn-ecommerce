@@ -5,7 +5,12 @@ import styles from './Video.module.scss';
 
 const cx = classNames.bind(styles);
 
-export const Video: FC = () => {
+type Props = {
+	src: string;
+};
+
+export const Video: FC<Props> = (props: Props) => {
+	const { src } = props;
 	const videoRef = useRef<HTMLVideoElement>(null);
 
 	const handleCompleteLoading = async () => {
@@ -21,7 +26,7 @@ export const Video: FC = () => {
 			}
 			const hls = new Hls({ autoStartLoad: false, maxBufferLength: 2 });
 
-			hls.loadSource('http://localhost:3000/videos/venera/venera.m3u8');
+			hls.loadSource(src);
 			hls.attachMedia(videoRef.current);
 			hls.on(Hls.Events.MANIFEST_PARSED, () => {
 				hls.startLoad(0);

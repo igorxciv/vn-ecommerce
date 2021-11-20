@@ -16,7 +16,7 @@ export const Home: FC = () => {
 
 	return (
 		<div className={homeClasses}>
-			<Video />
+			<Video src="http://localhost:3000/videos/venera/venera.m3u8" />
 			<h1>Home</h1>
 			<div>1</div>
 			<div>1</div>
