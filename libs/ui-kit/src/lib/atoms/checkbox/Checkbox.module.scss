@@ -1,4 +1,5 @@
 @import 'design/settings/colors';
+@import 'design/settings/fonts';
 @import 'design/tools/sizing';
 @import 'design/tools/accessibility';
 
@@ -30,5 +31,12 @@
 	&__mark {
 		height: rem(18);
 		width: rem(18);
+	}
+
+	&__label {
+		font-family: $font__secondary;
+		font-size: rem(13);
+		line-height: rem(20);
+		margin-left: rem(7);
 	}
 }

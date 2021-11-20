@@ -1,11 +1,9 @@
-import { createSelector } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 
 export const selectTabs = (state: RootState) => state.tabs.tabs;
 export const selectTabsError = (state: RootState) => state.tabs.error;
 export const selectTabsSortingTypes = (state: RootState) => state.tabs.sortingTypes;
 export const selectTabsSorting = (state: RootState) => state.tabs.selectedSorting;
-export const selectTabsFilters = (state: RootState) => state.tabs.filters;
-
-export const selectTabsArtists = createSelector(selectTabsFilters, (filters) => filters.artist || []);
-export const selectTabsSelectedFilters = (state: RootState) => state.tabs.selectedFilters;
+export const selectTabsArtists = (state: RootState) => state.tabs.filters.artist;
+export const selectTabsFilterSelectedArtists = (state: RootState) => state.tabs.selectedFilters.artist;
+export const selectSelectedFiltersAmount = (state: RootState) => Object.values(state.tabs.selectedFilters.artist).length;

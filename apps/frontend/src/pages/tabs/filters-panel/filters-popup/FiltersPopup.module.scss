@@ -1,6 +1,13 @@
 @import 'design/tools/sizing';
 
 .filters-popup {
+	&__artists {
+		display: grid;
+		gap: rem(20);
+		grid-template-columns: 1fr 1fr;
+		padding: rem(20);
+	}
+
 	&__apply {
 		padding: rem(30) rem(20);
 	}

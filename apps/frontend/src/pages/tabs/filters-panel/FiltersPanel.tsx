@@ -3,7 +3,7 @@ import { DropdownButton } from '@vn-ecommerce/ui-kit/atoms/dropdown-button';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames/bind';
 import { useAppSelector } from '@frontend/store/hooks';
-import { selectTabsSorting } from '@frontend/store/selectors/tabs';
+import { selectSelectedFiltersAmount, selectTabsSorting } from '@frontend/store/selectors/tabs';
 import { SortingPopup } from './sorting-popup';
 import { FiltersPopup } from './filters-popup';
 import styles from './FiltersPanel.module.scss';
@@ -15,6 +15,7 @@ export const FiltersPanel: FC = () => {
 	const [filtersOpened, setFiltersOpened] = useState(false);
 	const { t } = useTranslation('common');
 	const sorting = useAppSelector(selectTabsSorting);
+	const selectedFiltersAmount = useAppSelector(selectSelectedFiltersAmount);
 
 	const handleFilterClick = () => {
 		setFiltersOpened(!filtersOpened);
@@ -31,11 +32,15 @@ export const FiltersPanel: FC = () => {
 
 	const filtersPopup = filtersOpened && <FiltersPopup onClose={handleFilterClick} />;
 	const sortingPopup = sortingOpened && <SortingPopup onClose={handleSortingClick} />;
+	const selectedFiltersAmountLabel = selectedFiltersAmount ? `: ${selectedFiltersAmount}` : null;
 
 	return (
 		<div className={panelClasses}>
 			<div className={innerClasses}>
-				<DropdownButton onClick={handleFilterClick}>{t('filters.filter')}</DropdownButton>
+				<DropdownButton onClick={handleFilterClick}>
+					{t('filters.filter')}
+					{selectedFiltersAmountLabel}
+				</DropdownButton>
 				<DropdownButton onClick={handleSortingClick}>{sortingLabel}</DropdownButton>
 			</div>
 			{filtersPopup}
