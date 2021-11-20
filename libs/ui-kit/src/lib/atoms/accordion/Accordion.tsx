@@ -22,7 +22,7 @@ export const Accordion: FC<Props> = (props: PropsWithChildren<Props>) => {
 	const accordionClasses = cx('accordion');
 	const buttonClasses = cx('accordion__button');
 	const iconClasses = cx('accordion__icon');
-	const contentClasses = cx('accordion__content');
+	const contentClasses = cx('accordion__content', { 'accordion__content--opened': opened });
 
 	return (
 		<div className={accordionClasses}>
@@ -30,9 +30,7 @@ export const Accordion: FC<Props> = (props: PropsWithChildren<Props>) => {
 				{label}
 				<ChevronIcon className={iconClasses} />
 			</button>
-			<Transition in={opened} mountOnEnter unmountOnExit timeout={{ exit: 1000 }}>
-				{(state) => <div className={cx(contentClasses, `accordion__content--${state}`)}>{children}</div>}
-			</Transition>
+			<div className={contentClasses}>{children}</div>
 		</div>
 	);
 };
