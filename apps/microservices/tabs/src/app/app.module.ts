@@ -1,8 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { TabEntity } from '@vn-ecommerce/models';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { TabsModule } from './tabs';
+import { FiltersModule } from './filters';
 
 @Module({
 	imports: [
@@ -17,9 +16,8 @@ import { AppService } from './app.service';
 			synchronize: true,
 			dropSchema: true,
 		}),
-		TypeOrmModule.forFeature([TabEntity]),
+		TabsModule,
+		FiltersModule,
 	],
-	controllers: [AppController],
-	providers: [AppService],
 })
 export class AppModule {}

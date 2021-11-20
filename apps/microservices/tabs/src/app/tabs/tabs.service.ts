@@ -1,10 +1,10 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { TabEntity } from '@vn-ecommerce/models';
 import { InjectRepository } from '@nestjs/typeorm';
+import { TabEntity } from '@vn-ecommerce/models';
 import { Repository } from 'typeorm';
 
 @Injectable()
-export class AppService {
+export class TabsService {
 	constructor(@InjectRepository(TabEntity) private readonly tabRepository: Repository<TabEntity>) {}
 
 	async findAll(): Promise<TabEntity[]> {
