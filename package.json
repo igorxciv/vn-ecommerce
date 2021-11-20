@@ -25,6 +25,7 @@
     "class-validator": "0.13.1",
     "classnames": "2.3.1",
     "core-js": "3.19.1",
+    "hls.js": "1.1.1",
     "i18next": "21.4.1",
     "pg": "8.7.1",
     "react": "17.0.2",
