@@ -1,5 +1,25 @@
+@import 'design/settings/fonts';
+@import 'design/settings/font-weights';
 @import 'design/tools/sizing';
 
 .home {
 	padding-top: rem(20);
+
+	&__title {
+		font-family: $font__secondary;
+		font-size: rem(28);
+		margin-top: rem(15);
+		text-align: center;
+	}
+
+	&__sub-title {
+		font-family: $font__secondary;
+		font-size: rem(18);
+		margin-top: rem(30);
+		text-align: center;
+	}
+
+	&__select-course {
+		margin-top: rem(30);
+	}
 }

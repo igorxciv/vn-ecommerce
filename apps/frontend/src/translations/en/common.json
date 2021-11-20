@@ -15,5 +15,12 @@
 	},
 	"logo1": "Vanya",
 	"logo2": "Teach!",
-	"page_title": "Online School by Ivan Zaharenka"
+	"page_title": "Online School by Ivan Zaharenka",
+	"pages": {
+		"home": {
+			"main_title": "Guitar online-school by Ivan Zaharenka",
+			"select_course": "Select Your Course!",
+			"sub_title": "More than 1500 students all over the world"
+		}
+	}
 }
