@@ -1,1 +1,2 @@
-export * from './lib/entities/tab.entity';
+export * from './lib/entities/product.entity';
+export * from './lib/entities/price.entity';

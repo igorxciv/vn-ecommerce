@@ -1,5 +1,5 @@
 module.exports = {
-	displayName: 'microservices-tabs',
+	displayName: 'microservices-products',
 	preset: '../../../jest.preset.js',
 	globals: {
 		'ts-jest': {
@@ -11,5 +11,5 @@ module.exports = {
 		'^.+\\.[tj]s$': 'ts-jest',
 	},
 	moduleFileExtensions: ['ts', 'js', 'html'],
-	coverageDirectory: '../../../coverage/apps/microservices/tabs',
-}
+	coverageDirectory: '../../../coverage/apps/microservices/products',
+};
