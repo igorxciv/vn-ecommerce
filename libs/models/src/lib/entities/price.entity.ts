@@ -1,5 +1,6 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { ProductEntity } from './product.entity';
+import { CurrencyEntity } from './currency.entity';
 
 @Entity('prices')
 export class PriceEntity {
@@ -10,11 +11,11 @@ export class PriceEntity {
 	value: number;
 
 	@Column()
-	currency: string;
-
-	@Column()
 	symbol: string;
 
 	@ManyToOne(() => ProductEntity, (product) => product.price)
 	product: ProductEntity;
+
+	@ManyToOne(() => CurrencyEntity, (currency) => currency.id)
+	currency: PriceEntity;
 }

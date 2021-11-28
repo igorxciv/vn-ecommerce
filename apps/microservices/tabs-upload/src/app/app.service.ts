@@ -1,19 +1,24 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { ProductEntity } from '@vn-ecommerce/models';
+import { PriceEntity, ProductEntity } from '@vn-ecommerce/models';
 import { CreateTabDto } from '../dto/create-tab.dto';
 
 @Injectable()
 export class AppService {
-	constructor(@InjectRepository(ProductEntity) private readonly tabRepository: Repository<ProductEntity>) {}
+	constructor(
+		@InjectRepository(ProductEntity) private readonly productRepository: Repository<ProductEntity>,
+		@InjectRepository(PriceEntity) private readonly price: Repository<PriceEntity>,
+	) {}
 
 	async create(createTabDto: CreateTabDto) {
 		const { artist, track } = createTabDto;
-		const tab = this.tabRepository.create({ name: `${artist} - ${track}`, className: 'tabs' });
+		const tab = this.productRepository.create({ name: `${artist} - ${track}`, className: 'tabs' });
 
-		return await this.tabRepository.save(tab);
+		return await this.productRepository.save(tab);
 	}
+
+	private preloadPrice(value: number, currency = 'USD') {}
 
 	// async update(id: string, updateTabDto: UpdateTabDto) {
 	// 	const tab = await this.tabRepository.preload({ id, ...updateTabDto, updatedAt: new Date() });

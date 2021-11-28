@@ -13,4 +13,7 @@ export class CreateTabDto {
 	@IsString()
 	@IsOptional()
 	image?: string;
+
+	@IsNumber()
+	price: number;
 }
