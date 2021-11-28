@@ -1,4 +1,7 @@
 {
+	"achievements": {
+		"first": "Musicisan, professional guitarist, cover-maker;"
+	},
 	"buttons": {
 		"apply": "Apply",
 		"clear_all": "Clear All"
@@ -15,9 +18,11 @@
 	},
 	"logo1": "Vanya",
 	"logo2": "Teach!",
+	"name": "Ivan Zaharenka",
 	"page_title": "Online School by Ivan Zaharenka",
 	"pages": {
 		"home": {
+			"course_details": "Course Details",
 			"main_title": "Guitar online-school by Ivan Zaharenka",
 			"select_course": "Select Your Course!",
 			"sub_title": "More than 1500 students all over the world"
