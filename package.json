@@ -11,7 +11,11 @@
     "app": "nx run-many --target=serve --projects=frontend,microservices-tabs,microservices-tabs-upload --parallel=true",
     "start:microservice:products": "nx serve microservices-products",
     "start:microservice:tabs-upload": "nx serve microservices-tabs-upload",
-    "start:microservice:payment": "nx serve microservices-payment"
+    "start:microservice:payment": "nx serve microservices-payment",
+    "migration:run": "typeorm migration:run",
+    "migration:revert": "typeorm migration:revert",
+    "migration:create": "typeorm migration:create -n Schema",
+    "migration:generate": "typeorm migration:generate -n SchemaUpdate"
   },
   "private": true,
   "dependencies": {
