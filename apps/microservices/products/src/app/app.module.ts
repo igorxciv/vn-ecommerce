@@ -1,11 +1,13 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { CommonModule } from '@vn-ecommerce/common';
 import { ProductsModule } from './products';
 
 @Module({
 	imports: [
 		ConfigModule.forRoot(),
+		CommonModule,
 		TypeOrmModule.forRootAsync({
 			useFactory: () => ({
 				type: 'postgres',

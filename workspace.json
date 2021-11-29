@@ -1,6 +1,7 @@
 {
 	"version": 2,
 	"projects": {
+		"common": "libs/common",
 		"frontend": "apps/frontend",
 		"frontend-e2e": "apps/frontend-e2e",
 		"microservices-authorization": "apps/microservices/authorization",

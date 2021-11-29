@@ -17,6 +17,7 @@
 		"baseUrl": ".",
 		"paths": {
 			"@frontend/*": ["apps/frontend/src/*"],
+			"@vn-ecommerce/common": ["libs/common/src/index.ts"],
 			"@vn-ecommerce/models": ["libs/models/src/index.ts"],
 			"@vn-ecommerce/ui-kit/*": ["libs/ui-kit/src/lib/*"]
 		}

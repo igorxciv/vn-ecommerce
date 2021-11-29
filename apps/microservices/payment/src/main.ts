@@ -5,6 +5,7 @@
 
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import { HttpExceptionFilter } from '@vn-ecommerce/common';
 import { AppModule } from './app/app.module';
 
 async function bootstrap() {
@@ -14,6 +15,7 @@ async function bootstrap() {
 	app.setGlobalPrefix(globalPrefix);
 	app.useGlobalPipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }));
 	app.enableCors();
+	app.useGlobalFilters(new HttpExceptionFilter());
 	const port = process.env.PORT || 8084;
 
 	await app.listen(port, () => {

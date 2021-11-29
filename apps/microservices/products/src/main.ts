@@ -5,6 +5,7 @@
 
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import { HttpExceptionFilter, TimeoutInterceptor } from '@vn-ecommerce/common';
 import { AppModule } from './app/app.module';
 
 async function bootstrap() {
@@ -21,6 +22,8 @@ async function bootstrap() {
 		}),
 	);
 	app.enableCors();
+	app.useGlobalFilters(new HttpExceptionFilter());
+	app.useGlobalInterceptors(new TimeoutInterceptor());
 	const port = process.env.PORT || 8083;
 
 	await app.listen(port, () => {
