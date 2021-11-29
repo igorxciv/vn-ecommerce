@@ -1,4 +1,4 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn, JoinTable } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { PriceEntity } from '@vn-ecommerce/models';
 
 @Entity('products')
@@ -21,7 +21,6 @@ export class ProductEntity {
 	@Column({ default: new Date() })
 	updatedAt: Date;
 
-	@JoinTable()
 	@OneToMany(() => PriceEntity, (price) => price.product, { cascade: true })
 	prices: PriceEntity[];
 }

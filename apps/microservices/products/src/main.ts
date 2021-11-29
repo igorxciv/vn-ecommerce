@@ -12,7 +12,14 @@ async function bootstrap() {
 	const globalPrefix = 'api/v1';
 
 	app.setGlobalPrefix(globalPrefix);
-	app.useGlobalPipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }));
+	app.useGlobalPipes(
+		new ValidationPipe({
+			whitelist: true,
+			forbidNonWhitelisted: true,
+			transform: true,
+			transformOptions: { enableImplicitConversion: true },
+		}),
+	);
 	app.enableCors();
 	const port = process.env.PORT || 8083;
 
