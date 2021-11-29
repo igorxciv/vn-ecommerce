@@ -12,6 +12,6 @@ export class CurrencyEntity {
 	@Column()
 	symbol: string;
 
-	@OneToMany(() => PriceEntity, (price) => price.currency)
+	@OneToMany(() => PriceEntity, (price) => price.currency, { cascade: true })
 	price: PriceEntity;
 }

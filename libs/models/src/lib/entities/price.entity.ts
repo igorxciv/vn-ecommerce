@@ -10,10 +10,7 @@ export class PriceEntity {
 	@Column({ type: 'float' })
 	value: number;
 
-	@Column()
-	symbol: string;
-
-	@ManyToOne(() => ProductEntity, (product) => product.price)
+	@ManyToOne(() => ProductEntity, (product) => product.prices)
 	product: ProductEntity;
 
 	@ManyToOne(() => CurrencyEntity, (currency) => currency.id)

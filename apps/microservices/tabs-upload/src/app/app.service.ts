@@ -1,24 +1,30 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { PriceEntity, ProductEntity } from '@vn-ecommerce/models';
+import { CurrencyEntity, PriceEntity, ProductEntity } from '@vn-ecommerce/models';
 import { CreateTabDto } from '../dto/create-tab.dto';
 
 @Injectable()
 export class AppService {
 	constructor(
 		@InjectRepository(ProductEntity) private readonly productRepository: Repository<ProductEntity>,
-		@InjectRepository(PriceEntity) private readonly price: Repository<PriceEntity>,
+		@InjectRepository(PriceEntity) private readonly priceRepository: Repository<PriceEntity>,
+		@InjectRepository(CurrencyEntity) private readonly currencyRepository: Repository<CurrencyEntity>,
 	) {}
 
 	async create(createTabDto: CreateTabDto) {
-		const { artist, track } = createTabDto;
-		const tab = this.productRepository.create({ name: `${artist} - ${track}`, className: 'tabs' });
+		const { artist, track, prices: pricesDto } = createTabDto;
+		const prices = pricesDto.map((priceDto) => this.priceRepository.create({ ...priceDto, currency: { id: priceDto.currencyID } }));
+		const product = this.productRepository.create({ name: `${artist} - ${track}`, className: 'tabs', prices });
 
-		return await this.productRepository.save(tab);
+		// const currency = await this.currencyRepository.findOne(currencyID);
+		//
+		// if (!currency) {
+		// 	throw new NotFoundException(`Currency with ID ${currencyID} not found`);
+		// }
+
+		return await this.productRepository.save(product);
 	}
-
-	private preloadPrice(value: number, currency = 'USD') {}
 
 	// async update(id: string, updateTabDto: UpdateTabDto) {
 	// 	const tab = await this.tabRepository.preload({ id, ...updateTabDto, updatedAt: new Date() });

@@ -1,4 +1,13 @@
-import { IsNumber, IsOptional, IsString } from 'class-validator';
+import { IsArray, IsNumber, IsOptional, IsString, IsUUID, ValidateNested } from 'class-validator';
+import { Type } from 'class-transformer';
+
+class TabPriceDto {
+	@IsNumber()
+	value: number;
+
+	@IsUUID()
+	currencyID: string;
+}
 
 export class CreateTabDto {
 	@IsString()
@@ -14,6 +23,8 @@ export class CreateTabDto {
 	@IsOptional()
 	image?: string;
 
-	@IsNumber()
-	price: number;
+	@ValidateNested({ each: true })
+	@Type(() => TabPriceDto)
+	@IsArray()
+	prices: TabPriceDto[];
 }

@@ -22,6 +22,6 @@ export class ProductEntity {
 	updatedAt: Date;
 
 	@JoinTable()
-	@OneToMany(() => PriceEntity, (price) => price.product)
-	price: PriceEntity;
+	@OneToMany(() => PriceEntity, (price) => price.product, { cascade: true })
+	prices: PriceEntity[];
 }
