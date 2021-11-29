@@ -1,0 +1,52 @@
+{
+	"root": "apps/microservices/payment",
+	"sourceRoot": "apps/microservices/payment/src",
+	"projectType": "application",
+	"targets": {
+		"build": {
+			"executor": "@nrwl/node:build",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/apps/microservices/payment",
+				"main": "apps/microservices/payment/src/main.ts",
+				"tsConfig": "apps/microservices/payment/tsconfig.app.json",
+				"assets": ["apps/microservices/payment/src/assets"]
+			},
+			"configurations": {
+				"production": {
+					"optimization": true,
+					"extractLicenses": true,
+					"inspect": false,
+					"fileReplacements": [
+						{
+							"replace": "apps/microservices/payment/src/environments/environment.ts",
+							"with": "apps/microservices/payment/src/environments/environment.prod.ts"
+						}
+					]
+				}
+			}
+		},
+		"serve": {
+			"executor": "@nrwl/node:execute",
+			"options": {
+				"buildTarget": "microservices-payment:build"
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["apps/microservices/payment/**/*.ts"]
+			}
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/apps/microservices/payment"],
+			"options": {
+				"jestConfig": "apps/microservices/payment/jest.config.js",
+				"passWithNoTests": true
+			}
+		}
+	},
+	"tags": []
+}

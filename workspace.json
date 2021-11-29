@@ -5,6 +5,7 @@
 		"frontend-e2e": "apps/frontend-e2e",
 		"microservices-authorization": "apps/microservices/authorization",
 		"microservices-cart": "apps/microservices/cart",
+		"microservices-payment": "apps/microservices/payment",
 		"microservices-products": "apps/microservices/products",
 		"microservices-registration": "apps/microservices/registration",
 		"microservices-tabs-upload": "apps/microservices/tabs-upload",
