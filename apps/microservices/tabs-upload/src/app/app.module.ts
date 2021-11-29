@@ -1,26 +1,27 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { CurrencyEntity, PriceEntity, ProductEntity } from '@vn-ecommerce/models';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { ConfigModule } from '@nestjs/config';
 import { CurrenciesValidator } from './validators';
+import { TabsUploadModule } from './tabs-upload';
 
 @Module({
 	imports: [
-		TypeOrmModule.forRoot({
-			type: 'postgres',
-			host: 'localhost',
-			port: 5432,
-			username: 'postgres',
-			password: process.env.DB_PASSWORD,
-			database: 'vn-ecommerce',
-			autoLoadEntities: true,
-			synchronize: true,
-			dropSchema: true,
+		ConfigModule.forRoot(),
+		TypeOrmModule.forRootAsync({
+			useFactory: () => ({
+				type: 'postgres',
+				host: process.env.DATABASE_HOST,
+				port: +process.env.DATABASE_PORT,
+				username: process.env.DATABASE_USER,
+				password: process.env.DATABASE_PASSWORD,
+				database: process.env.DATABASE_NAME,
+				autoLoadEntities: true,
+				synchronize: true,
+				dropSchema: true,
+			}),
 		}),
-		TypeOrmModule.forFeature([ProductEntity, PriceEntity, CurrencyEntity]),
+		TabsUploadModule,
 	],
-	controllers: [AppController],
-	providers: [AppService, CurrenciesValidator],
+	providers: [CurrenciesValidator],
 })
 export class AppModule {}

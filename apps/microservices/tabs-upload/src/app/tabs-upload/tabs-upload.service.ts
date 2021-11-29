@@ -1,12 +1,12 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 import { CurrencyEntity, PriceEntity, ProductEntity } from '@vn-ecommerce/models';
-import { CurrenciesValidator } from './validators';
+import { Repository } from 'typeorm';
+import { CurrenciesValidator } from '../validators';
 import { CreateTabDto } from '../dto/create-tab.dto';
 
 @Injectable()
-export class AppService {
+export class TabsUploadService {
 	constructor(
 		@InjectRepository(ProductEntity) private readonly productRepository: Repository<ProductEntity>,
 		@InjectRepository(PriceEntity) private readonly priceRepository: Repository<PriceEntity>,

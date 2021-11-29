@@ -1,14 +1,14 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { AppService } from './app.service';
+import { TabsUploadService } from './tabs-upload.service';
 import { CreateTabDto } from '../dto/create-tab.dto';
 
 @Controller('tabs')
-export class AppController {
-	constructor(private readonly appService: AppService) {}
+export class TabsUploadController {
+	constructor(private readonly tabsUploadService: TabsUploadService) {}
 
 	@Post()
 	uploadTab(@Body() body: CreateTabDto) {
-		return this.appService.create(body);
+		return this.tabsUploadService.create(body);
 	}
 
 	// @Patch(':uuid')
