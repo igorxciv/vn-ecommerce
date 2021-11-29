@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { CurrencyEntity, PriceEntity, ProductEntity } from '@vn-ecommerce/models';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { CurrenciesValidator } from './validators';
 
 @Module({
 	imports: [
@@ -20,6 +21,6 @@ import { AppService } from './app.service';
 		TypeOrmModule.forFeature([ProductEntity, PriceEntity, CurrencyEntity]),
 	],
 	controllers: [AppController],
-	providers: [AppService],
+	providers: [AppService, CurrenciesValidator],
 })
 export class AppModule {}

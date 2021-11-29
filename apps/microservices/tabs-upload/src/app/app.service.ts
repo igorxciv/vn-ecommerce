@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CurrencyEntity, PriceEntity, ProductEntity } from '@vn-ecommerce/models';
+import { CurrenciesValidator } from './validators';
 import { CreateTabDto } from '../dto/create-tab.dto';
 
 @Injectable()
@@ -10,18 +11,20 @@ export class AppService {
 		@InjectRepository(ProductEntity) private readonly productRepository: Repository<ProductEntity>,
 		@InjectRepository(PriceEntity) private readonly priceRepository: Repository<PriceEntity>,
 		@InjectRepository(CurrencyEntity) private readonly currencyRepository: Repository<CurrencyEntity>,
+		private readonly currenciesValidator: CurrenciesValidator,
 	) {}
 
 	async create(createTabDto: CreateTabDto) {
 		const { artist, track, prices: pricesDto } = createTabDto;
+		const currencies = createTabDto.prices.map((price) => price.currencyID);
+		const currenciesExist = await this.currenciesValidator.checkCurrenciesExist(...currencies);
+
+		if (!currenciesExist) {
+			throw new NotFoundException('Currencies not found');
+		}
+
 		const prices = pricesDto.map((priceDto) => this.priceRepository.create({ ...priceDto, currency: { id: priceDto.currencyID } }));
 		const product = this.productRepository.create({ name: `${artist} - ${track}`, className: 'tabs', prices });
-
-		// const currency = await this.currencyRepository.findOne(currencyID);
-		//
-		// if (!currency) {
-		// 	throw new NotFoundException(`Currency with ID ${currencyID} not found`);
-		// }
 
 		return await this.productRepository.save(product);
 	}
